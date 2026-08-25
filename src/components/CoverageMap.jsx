@@ -43,13 +43,13 @@ const CoverageMap = () => {
 
   return (
     <section
-      className="py-20 bg-[#111111] overflow-hidden border-t border-white/10"
+      className="py-24 md:py-32 bg-[#111111] overflow-hidden border-t border-white/10 relative"
       ref={containerRef}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
+        <div className="grid lg:grid-cols-12 gap-12 xl:gap-16 items-center">
 
-<div className="lg:w-1/2 text-left">
+          <div className="lg:col-span-5 text-left">
             <span className="qeero-badge bg-white/10 text-white border-white/20 mb-4 block w-fit">
               {t.coverageMap.badge}
             </span>
@@ -59,7 +59,7 @@ const CoverageMap = () => {
               {t.coverageMap.titleFrance}<br />
               <span className="text-[#22C55E]">{t.coverageMap.titleIntl}</span>
             </h2>
-            <p className="text-lg text-white/60 mb-8 max-w-md">
+            <p className="text-lg text-white/60 mb-8 max-w-lg leading-relaxed">
               {t.coverageMap.desc1}{' '}
               <span className="text-[#22C55E] font-semibold">{t.coverageMap.descPerigueux}</span> {t.coverageMap.desc2}{' '}
               <span className="text-[#22C55E] font-semibold">{t.coverageMap.descEssaouira}</span>
@@ -69,15 +69,15 @@ const CoverageMap = () => {
               <div className="flex -space-x-3">
                 <img
                   src="/asset_1.jpeg"
-                  className="w-10 h-10 rounded-full border-2 border-[#111111] object-cover"
+                  className="w-11 h-11 rounded-full border-2 border-[#111111] object-cover shadow-md"
                   alt=""
                 />
                 <img
                   src="/asset_3.jpeg"
-                  className="w-10 h-10 rounded-full border-2 border-[#111111] object-cover"
+                  className="w-11 h-11 rounded-full border-2 border-[#111111] object-cover shadow-md"
                   alt=""
                 />
-                <div className="w-10 h-10 rounded-full border-2 border-[#111111] bg-[#22C55E] flex items-center justify-center text-xs font-bold text-white">
+                <div className="w-11 h-11 rounded-full border-2 border-[#111111] bg-[#22C55E] flex items-center justify-center text-xs font-bold text-white shadow-md">
                   +40
                 </div>
               </div>
@@ -87,16 +87,16 @@ const CoverageMap = () => {
             </div>
           </div>
 
-<div className="lg:w-1/2 w-full max-w-lg">
+          <div className="lg:col-span-7 w-full">
             <motion.div
               initial={{ opacity: 0, scale: 0.96 }}
               animate={isInView ? { opacity: 1, scale: 1 } : {}}
               transition={{ duration: 0.8, ease: 'easeOut' }}
-              className="rounded-2xl overflow-hidden border border-white/10 shadow-2xl"
+              className="rounded-3xl overflow-hidden border border-white/15 shadow-2xl bg-[#161616] p-2 md:p-3"
             >
               <svg
                 viewBox="0 0 280 200"
-                className="w-full h-full"
+                className="w-full h-auto rounded-2xl block"
                 style={{ background: '#161616' }}
               >
                 

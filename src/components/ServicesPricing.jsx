@@ -105,22 +105,40 @@ const ServicesPricing = () => {
                   {service.title}
                 </h3>
 
-<div className="inline-flex items-center self-start p-1 bg-gray-100 rounded-full mb-6">
+                <div className="inline-flex items-center self-start p-1.5 bg-gray-100/90 rounded-full mb-6 border border-black/5 shadow-inner">
                   <button
                     onClick={() => setIsAnnual(false)}
-                    className={`px-4 py-1.5 rounded-full text-xs font-bold transition-all duration-200 ${
-                      !isAnnual ? 'bg-white shadow text-black' : 'text-gray-500'
+                    className={`relative z-10 px-4 py-2 rounded-full text-xs font-extrabold transition-all duration-200 cursor-pointer flex items-center gap-1.5 group ${
+                      !isAnnual ? 'text-[#111111]' : 'text-gray-500 hover:text-[#22C55E]'
                     }`}
                   >
-                    Mensuel
+                    <motion.span whileHover={{ scale: 1.06 }} whileTap={{ scale: 0.95 }} className="transition-colors group-hover:text-[#22C55E]">
+                      Mensuel
+                    </motion.span>
+                    {!isAnnual && (
+                      <motion.div
+                        layoutId="serv-plan-pill"
+                        className="absolute inset-0 bg-white rounded-full shadow-md -z-10 border border-black/5"
+                        transition={{ type: 'spring', stiffness: 500, damping: 35 }}
+                      />
+                    )}
                   </button>
                   <button
                     onClick={() => setIsAnnual(true)}
-                    className={`px-4 py-1.5 rounded-full text-xs font-bold transition-all duration-200 flex items-center gap-1.5 ${
-                      isAnnual ? 'bg-white shadow text-black' : 'text-gray-500'
+                    className={`relative z-10 px-4 py-2 rounded-full text-xs font-extrabold transition-all duration-200 cursor-pointer flex items-center gap-1.5 group ${
+                      isAnnual ? 'text-[#111111]' : 'text-gray-500 hover:text-[#22C55E]'
                     }`}
                   >
-                    Annuel <span className="bg-[#E6F8ED] text-[#22C55E] text-[9px] px-1.5 py-0.5 rounded-full font-black">-15%</span>
+                    <motion.span whileHover={{ scale: 1.06 }} whileTap={{ scale: 0.95 }} className="flex items-center gap-1.5 transition-colors group-hover:text-[#22C55E]">
+                      Annuel <span className="bg-[#E6F8ED] text-[#22C55E] text-[10px] px-2 py-0.5 rounded-full font-black shadow-sm">-15%</span>
+                    </motion.span>
+                    {isAnnual && (
+                      <motion.div
+                        layoutId="serv-plan-pill"
+                        className="absolute inset-0 bg-white rounded-full shadow-md -z-10 border border-black/5"
+                        transition={{ type: 'spring', stiffness: 500, damping: 35 }}
+                      />
+                    )}
                   </button>
                 </div>
 

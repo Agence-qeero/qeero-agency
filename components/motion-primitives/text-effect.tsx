@@ -268,6 +268,7 @@ export function TextEffect({
     <AnimatePresence mode='popLayout'>
       {trigger && (
         <MotionTag
+          key={children}
           initial='hidden'
           whileInView='visible'
           viewport={{ once: true, margin: '-50px' }}

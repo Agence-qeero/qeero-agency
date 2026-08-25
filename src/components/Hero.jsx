@@ -19,7 +19,7 @@ const col1 = [...ALL_ASSETS, ...ALL_ASSETS];
 const col2 = [...ALL_ASSETS.slice(3), ...ALL_ASSETS.slice(0, 3), ...ALL_ASSETS.slice(3), ...ALL_ASSETS.slice(0, 3)];
 
 const Hero = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   return (
     <section className="relative min-h-screen flex items-center bg-[#F8F8F6] pt-24 pb-12 overflow-hidden border-b border-black/5">
@@ -47,19 +47,19 @@ const Hero = () => {
             {t.hero.badge}
           </span>
 
-<h1 className="text-4xl sm:text-5xl lg:text-[3.4rem] xl:text-[3.8rem] font-extrabold tracking-tight leading-[1.08] mb-5 text-[#111111]">
+<h1 key={language} className="text-4xl sm:text-5xl lg:text-[3.4rem] xl:text-[3.8rem] font-extrabold tracking-tight leading-[1.08] mb-5 text-[#111111]">
             <TextEffect as="span" per="word" preset="blur">
               {t.hero.title}
             </TextEffect>
             <br />
             <span className="text-gradient-qeero block mt-1">
-              <TextEffect as="span" per="word" preset="fade" delay={0.4}>
+              <TextEffect as="span" per="word" preset="fade" delay={0.2}>
                 {t.hero.subtitle}
               </TextEffect>
             </span>
           </h1>
 
-<p className="text-lg text-gray-500 leading-relaxed mb-8 max-w-[480px] font-normal">
+<p key={`p-${language}`} className="text-lg text-gray-500 leading-relaxed mb-8 max-w-xl font-normal">
             {t.hero.offer}
           </p>
 

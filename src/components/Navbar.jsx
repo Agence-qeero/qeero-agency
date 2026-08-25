@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { Menu, X } from 'lucide-react';
+import { motion } from 'framer-motion';
 import ContactModal from './ContactModal';
 import TextHover from './TextHover';
 
@@ -18,7 +19,7 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-useEffect(() => {
+  useEffect(() => {
     document.body.style.overflow = mobileOpen ? 'hidden' : '';
     return () => { document.body.style.overflow = ''; };
   }, [mobileOpen]);
@@ -36,12 +37,12 @@ useEffect(() => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
 
-<a href="/" className="flex-shrink-0 flex items-center gap-2 group">
+            <a href="/" className="flex-shrink-0 flex items-center gap-2 group">
               <img src="/Q.png" alt="Qeero Logo" className="h-10 w-auto object-contain" />
               <span translate="no" className="text-2xl font-black tracking-tight text-[#111111] group-hover:text-[#22C55E] transition-colors">qeero.</span>
             </a>
 
-<div className="hidden md:flex items-center gap-8">
+            <div className="hidden md:flex items-center gap-8">
               {links.map(({ href, label }) => (
                 <a
                   key={href}
@@ -53,14 +54,43 @@ useEffect(() => {
               ))}
             </div>
 
-<div className="flex items-center gap-3">
-              <button
-                onClick={() => setLanguage(language === 'en' ? 'fr' : 'en')}
-                className="w-9 h-9 rounded-full flex items-center justify-center hover:bg-gray-100 transition-colors text-lg"
-                title={language === 'en' ? 'Change language' : 'Changer de langue'}
-              >
-                {language === 'en' ? '🇬🇧' : '🇫🇷'}
-              </button>
+            <div className="flex items-center gap-3">
+              <div className="relative flex items-center bg-gray-100/90 p-1 rounded-full border border-black/5 shadow-inner">
+                {[
+                  { code: 'fr', flag: '🇫🇷', label: 'FR' },
+                  { code: 'en', flag: '🇬🇧', label: 'EN' },
+                ].map((item) => {
+                  const isActive = language === item.code;
+                  return (
+                    <button
+                      key={item.code}
+                      onClick={() => setLanguage(item.code)}
+                      className={`relative z-10 flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-bold transition-colors duration-200 cursor-pointer ${
+                        isActive ? 'text-[#111111]' : 'text-gray-400 hover:text-gray-700'
+                      }`}
+                      title={item.code === 'fr' ? 'Français' : 'English'}
+                    >
+                      <motion.span
+                        className="text-base inline-block"
+                        whileHover={{ scale: 1.25, y: -1 }}
+                        whileTap={{ scale: 0.9 }}
+                        transition={{ type: 'spring', stiffness: 400, damping: 15 }}
+                      >
+                        {item.flag}
+                      </motion.span>
+                      <span className="hidden sm:inline text-[11px] font-extrabold tracking-wider">{item.label}</span>
+                      {isActive && (
+                        <motion.div
+                          layoutId="active-flag-pill"
+                          className="absolute inset-0 bg-white rounded-full shadow-sm -z-10 border border-black/5"
+                          transition={{ type: 'spring', stiffness: 500, damping: 35 }}
+                        />
+                      )}
+                    </button>
+                  );
+                })}
+              </div>
+
               <button
                 onClick={() => setContactOpen(true)}
                 className="hidden md:inline-flex btn-qeero px-6 py-2.5 text-sm"
@@ -78,8 +108,28 @@ useEffect(() => {
           </div>
         </div>
 
-{mobileOpen && (
+        {mobileOpen && (
           <div className="md:hidden bg-white border-t border-black/5 px-6 py-8 flex flex-col gap-6">
+            <div className="flex items-center justify-between pb-4 border-b border-black/5">
+              <span className="text-sm font-bold text-gray-500">Langue / Language</span>
+              <div className="relative flex items-center bg-gray-100 p-1 rounded-full border border-black/5">
+                {[
+                  { code: 'fr', flag: '🇫🇷', label: 'FR' },
+                  { code: 'en', flag: '🇬🇧', label: 'EN' },
+                ].map((item) => (
+                  <button
+                    key={item.code}
+                    onClick={() => setLanguage(item.code)}
+                    className={`relative z-10 flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold transition-all ${
+                      language === item.code ? 'bg-white shadow text-[#111111]' : 'text-gray-400'
+                    }`}
+                  >
+                    <span>{item.flag}</span>
+                    <span className="text-xs font-extrabold">{item.label}</span>
+                  </button>
+                ))}
+              </div>
+            </div>
             {links.map(({ href, label }) => (
               <a
                 key={href}

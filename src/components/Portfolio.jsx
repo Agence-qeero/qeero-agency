@@ -38,23 +38,27 @@ const PortfolioItem = ({ src, label, cat, t, i, openLightbox }) => {
       initial={{ opacity: 0, scale: 0.95, y: 20 }}
       animate={{ opacity: 1, scale: 1, y: 0 }}
       exit={{ opacity: 0, scale: 0.95, y: 20 }}
-      transition={{ duration: 0.3, delay: i * 0.04 }}
-      className="group relative rounded-2xl overflow-hidden bg-gray-100 shadow-sm hover:shadow-xl border border-black/5 cursor-zoom-in transition-all duration-300 flex flex-col"
+      transition={{ duration: 0.35, delay: i * 0.03 }}
+      className="group relative rounded-2xl overflow-hidden bg-[#F3F4F1] shadow-sm hover:shadow-2xl border border-black/5 cursor-zoom-in transition-all duration-300 mb-6 break-inside-avoid"
       onClick={() => openLightbox(i)}
     >
-      <div className="relative w-full aspect-[4/3] overflow-hidden bg-gray-100">
+      <div className="relative w-full overflow-hidden bg-gray-50/50">
         <img
           src={src}
           alt={label}
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+          className="w-full h-auto object-contain block transition-transform duration-500 group-hover:scale-[1.02]"
+          loading="lazy"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+        <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-between p-4">
           <span className="bg-white/95 backdrop-blur-sm text-[#111111] text-xs font-bold px-3 py-1.5 rounded-full shadow-md">
             {label}
           </span>
+          <span className="text-white text-xs font-semibold flex items-center gap-1 opacity-90">
+            🔍 Zoom
+          </span>
         </div>
       </div>
-      <span className="absolute top-3 right-3 bg-[#22C55E] text-white text-[10px] font-bold px-2.5 py-1 rounded-full shadow-sm">
+      <span className="absolute top-3 right-3 bg-[#22C55E] text-white text-[10px] font-bold px-2.5 py-1 rounded-full shadow-sm pointer-events-none z-10">
         {t.portfolio.delivered}
       </span>
     </motion.div>
@@ -130,7 +134,7 @@ const catMap = {
 
 <motion.div 
           layout 
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch"
+          className="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-6 [column-fill:_balance]"
         >
           <AnimatePresence>
             {filtered.map((item, i) => (
