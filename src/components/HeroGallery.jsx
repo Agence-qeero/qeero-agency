@@ -1,27 +1,24 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-const ALL_ASSETS = [
-  '/asset_1.jpeg',
-  '/asset_2.jpeg',
-  '/asset_3.jpeg',
-  '/asset_4.jpeg',
-  '/asset_5.jpeg',
-  '/asset_6.jpeg',
-  '/asset_7.jpeg',
-  '/asset_8.jpeg',
-  '/asset_9.jpeg',
-  '/asset_10.jpeg',
-  '/jbl.jpeg',
+const HERO_ASSETS_COL1 = [
+  'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&auto=format&fit=crop&q=80',
+  'https://images.unsplash.com/photo-1586075010923-2dd4570fb338?w=600&auto=format&fit=crop&q=80',
+  'https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?w=600&auto=format&fit=crop&q=80',
+  'https://images.unsplash.com/photo-1579783902614-a3fb3927b675?w=600&auto=format&fit=crop&q=80',
+  'https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=600&auto=format&fit=crop&q=80',
 ];
 
-const col1 = [...ALL_ASSETS, ...ALL_ASSETS];
-const col2 = [
-  ...ALL_ASSETS.slice(5),
-  ...ALL_ASSETS.slice(0, 5),
-  ...ALL_ASSETS.slice(5),
-  ...ALL_ASSETS.slice(0, 5),
+const HERO_ASSETS_COL2 = [
+  'https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?w=600&auto=format&fit=crop&q=80',
+  'https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=600&auto=format&fit=crop&q=80',
+  'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600&auto=format&fit=crop&q=80',
+  'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&auto=format&fit=crop&q=80',
+  'https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=600&auto=format&fit=crop&q=80',
 ];
+
+const col1 = [...HERO_ASSETS_COL1, ...HERO_ASSETS_COL1];
+const col2 = [...HERO_ASSETS_COL2, ...HERO_ASSETS_COL2];
 
 const GAP = 16;  
 

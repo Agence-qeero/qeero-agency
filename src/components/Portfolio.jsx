@@ -7,14 +7,19 @@ import { useLanguage } from '../contexts/LanguageContext';
 const allImages = [
   { src: '/asset_1.jpeg',  label: 'Branding Produit',             cat: '2D' },
   { src: '/asset_2.jpeg',  label: 'Signalétique Digitale',        cat: 'Print' },
+  { src: '/sfvGlyBlZDHhxs1HkdQsIUJMDo.webp', label: 'Rendu 3D & Sculpture', cat: '3D' },
   { src: '/asset_3.jpeg',  label: 'Réseaux Sociaux',              cat: '2D' },
   { src: '/asset_4.jpeg',  label: 'Motion & Digital',             cat: 'Digital' },
   { src: '/asset_5.jpeg',  label: 'Brochure Print',               cat: 'Print' },
   { src: '/asset_6.jpeg',  label: 'Visuel Architectural',         cat: '3D' },
+  { src: '/WRN0NfH8VHO701t3lbk614Xp3NM.avif', label: 'Packaging & Modélisation', cat: '3D' },
   { src: '/asset_7.jpeg',  label: 'Document Officiel',            cat: 'Print' },
   { src: '/asset_8.jpeg',  label: 'Social Media — Restauration',  cat: '2D' },
   { src: '/asset_9.jpeg',  label: 'Publicité Digitale',           cat: 'Digital' },
+  { src: '/ID1NUDxUvtx9zuXyouHrIGW4TM.avif', label: 'Campagne Visuelle Digitale', cat: 'Digital' },
   { src: '/asset_10.jpeg', label: 'Social Media — Galerie Galet', cat: '2D' },
+  { src: '/logo-karting.jpeg', label: 'Identité Karting du Périgord', cat: '2D' },
+  { src: '/logo-fgci.jpeg', label: 'Charte Graphique Groupe FGCI', cat: 'Print' },
   { src: '/jbl.jpeg',      label: 'Branding Produit — JBL',       cat: '2D' },
 ];
 
