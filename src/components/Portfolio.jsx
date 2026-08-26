@@ -7,19 +7,14 @@ import { useLanguage } from '../contexts/LanguageContext';
 const allImages = [
   { src: '/asset_1.jpeg',  label: 'Branding Produit',             cat: '2D' },
   { src: '/asset_2.jpeg',  label: 'Signalétique Digitale',        cat: 'Print' },
-  { src: '/sfvGlyBlZDHhxs1HkdQsIUJMDo.webp', label: 'Rendu 3D & Sculpture', cat: '3D' },
   { src: '/asset_3.jpeg',  label: 'Réseaux Sociaux',              cat: '2D' },
   { src: '/asset_4.jpeg',  label: 'Motion & Digital',             cat: 'Digital' },
   { src: '/asset_5.jpeg',  label: 'Brochure Print',               cat: 'Print' },
   { src: '/asset_6.jpeg',  label: 'Visuel Architectural',         cat: '3D' },
-  { src: '/WRN0NfH8VHO701t3lbk614Xp3NM.avif', label: 'Packaging & Modélisation', cat: '3D' },
   { src: '/asset_7.jpeg',  label: 'Document Officiel',            cat: 'Print' },
   { src: '/asset_8.jpeg',  label: 'Social Media — Restauration',  cat: '2D' },
   { src: '/asset_9.jpeg',  label: 'Publicité Digitale',           cat: 'Digital' },
-  { src: '/ID1NUDxUvtx9zuXyouHrIGW4TM.avif', label: 'Campagne Visuelle Digitale', cat: 'Digital' },
   { src: '/asset_10.jpeg', label: 'Social Media — Galerie Galet', cat: '2D' },
-  { src: '/logo-karting.jpeg', label: 'Identité Karting du Périgord', cat: '2D' },
-  { src: '/logo-fgci.jpeg', label: 'Charte Graphique Groupe FGCI', cat: 'Print' },
   { src: '/jbl.jpeg',      label: 'Branding Produit — JBL',       cat: '2D' },
 ];
 
@@ -38,27 +33,23 @@ const PortfolioItem = ({ src, label, cat, t, i, openLightbox }) => {
       initial={{ opacity: 0, scale: 0.95, y: 20 }}
       animate={{ opacity: 1, scale: 1, y: 0 }}
       exit={{ opacity: 0, scale: 0.95, y: 20 }}
-      transition={{ duration: 0.35, delay: i * 0.03 }}
-      className="group relative rounded-2xl overflow-hidden bg-[#F3F4F1] shadow-sm hover:shadow-2xl border border-black/5 cursor-zoom-in transition-all duration-300 mb-6 break-inside-avoid"
+      transition={{ duration: 0.3, delay: i * 0.04 }}
+      className="group relative rounded-2xl overflow-hidden bg-gray-100 shadow-sm hover:shadow-xl border border-black/5 cursor-zoom-in transition-all duration-300 flex flex-col"
       onClick={() => openLightbox(i)}
     >
-      <div className="relative w-full overflow-hidden bg-gray-50/50">
+      <div className="relative w-full aspect-[4/3] overflow-hidden bg-gray-100">
         <img
           src={src}
           alt={label}
-          className="w-full h-auto object-contain block transition-transform duration-500 group-hover:scale-[1.02]"
-          loading="lazy"
+          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-between p-4">
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
           <span className="bg-white/95 backdrop-blur-sm text-[#111111] text-xs font-bold px-3 py-1.5 rounded-full shadow-md">
             {label}
           </span>
-          <span className="text-white text-xs font-semibold flex items-center gap-1 opacity-90">
-            🔍 Zoom
-          </span>
         </div>
       </div>
-      <span className="absolute top-3 right-3 bg-[#22C55E] text-white text-[10px] font-bold px-2.5 py-1 rounded-full shadow-sm pointer-events-none z-10">
+      <span className="absolute top-3 right-3 bg-[#22C55E] text-white text-[10px] font-bold px-2.5 py-1 rounded-full shadow-sm">
         {t.portfolio.delivered}
       </span>
     </motion.div>
@@ -69,15 +60,15 @@ const Portfolio = () => {
   const { t } = useLanguage();
   const categories = getCategories(t);
 
-const [active, setActive] = useState(t.portfolio.categories.all);
+  const [active, setActive] = useState(t.portfolio.categories.all);
 
-React.useEffect(() => {
+  React.useEffect(() => {
     setActive(t.portfolio.categories.all);
   }, [t]);
 
   const [lightboxIndex, setLightboxIndex] = useState(null);
 
-const catMap = {
+  const catMap = {
     '2D': t.portfolio.categories.twoD,
     '3D': t.portfolio.categories.threeD,
     'Print': t.portfolio.categories.print,
@@ -97,7 +88,7 @@ const catMap = {
     <section id="portfolio" className="py-14 md:py-20 bg-white border-t border-black/5 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-<div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
           <div>
             <span className="qeero-badge mb-4 block w-fit">{t.portfolio.badge}</span>
             <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-[#111111] leading-tight">
@@ -116,7 +107,7 @@ const catMap = {
           </a>
         </div>
 
-<div className="flex flex-wrap gap-2 mb-8">
+        <div className="flex flex-wrap gap-2 mb-8">
           {categories.map(cat => (
             <button
               key={cat}
@@ -132,9 +123,9 @@ const catMap = {
           ))}
         </div>
 
-<motion.div 
+        <motion.div 
           layout 
-          className="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-6 [column-fill:_balance]"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch"
         >
           <AnimatePresence>
             {filtered.map((item, i) => (
@@ -152,7 +143,7 @@ const catMap = {
         </motion.div>
       </div>
 
-{lightboxIndex !== null && (
+      {lightboxIndex !== null && (
         <Lightbox
           images={filtered}
           currentIndex={lightboxIndex}

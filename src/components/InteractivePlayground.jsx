@@ -15,11 +15,11 @@ const InteractivePlayground = () => {
   ];
 
   const artifacts = [
-    { id: 1, src: '/logo-miami-burger.jpeg', label: itemLabels[0]?.label || 'Branding', x: '10%', y: '10%', rotate: -6 },
+    { id: 1, src: '/asset_1.jpeg', label: itemLabels[0]?.label || 'Branding', x: '10%', y: '10%', rotate: -6 },
     { id: 2, src: '/asset_2.jpeg', label: itemLabels[1]?.label || 'Poster Design', x: '40%', y: '5%', rotate: 4 },
-    { id: 3, src: '/sfvGlyBlZDHhxs1HkdQsIUJMDo.webp', label: itemLabels[2]?.label || '3D Render', x: '70%', y: '15%', rotate: -3 },
-    { id: 4, src: '/asset_8.jpeg', label: itemLabels[3]?.label || 'Social Kit', x: '20%', y: '40%', rotate: 8 },
-    { id: 5, src: '/WRN0NfH8VHO701t3lbk614Xp3NM.avif', label: itemLabels[4]?.label || 'Packaging', x: '55%', y: '35%', rotate: -5 },
+    { id: 3, src: '/asset_3.jpeg', label: itemLabels[2]?.label || '3D Render', x: '70%', y: '15%', rotate: -3 },
+    { id: 4, src: '/asset_4.jpeg', label: itemLabels[3]?.label || 'Social Kit', x: '20%', y: '40%', rotate: 8 },
+    { id: 5, src: '/asset_5.jpeg', label: itemLabels[4]?.label || 'Packaging', x: '55%', y: '35%', rotate: -5 },
   ];
 
   return (
@@ -36,7 +36,7 @@ const InteractivePlayground = () => {
         </p>
       </div>
 
-<div 
+      <div 
         ref={containerRef} 
         className="relative w-full max-w-7xl mx-auto h-[600px] bg-[#F8F8F6] rounded-[3rem] border border-black/10 shadow-inner overflow-hidden cursor-crosshair"
         style={{ backgroundImage: 'radial-gradient(circle, #E5E7EB 2px, transparent 2px)', backgroundSize: '40px 40px' }}
