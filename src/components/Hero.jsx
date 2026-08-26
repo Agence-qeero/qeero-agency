@@ -1,22 +1,8 @@
 import React from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
-import { motion } from 'framer-motion';
 import { TextEffect } from '../../components/motion-primitives/text-effect';
 import { Magnetic } from '../../components/motion-primitives/magnetic';
 import HeroGallery from './HeroGallery';
-
-const ALL_ASSETS = [
-  '/asset_1.jpeg',
-  '/asset_2.jpeg',
-  '/asset_3.jpeg',
-  '/asset_4.jpeg',
-  '/asset_5.jpeg',
-  '/asset_6.jpeg',
-  '/asset_7.jpeg',
-];
-
-const col1 = [...ALL_ASSETS, ...ALL_ASSETS];
-const col2 = [...ALL_ASSETS.slice(3), ...ALL_ASSETS.slice(0, 3), ...ALL_ASSETS.slice(3), ...ALL_ASSETS.slice(0, 3)];
 
 const Hero = () => {
   const { t, language } = useLanguage();

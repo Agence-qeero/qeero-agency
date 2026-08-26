@@ -52,7 +52,7 @@ const HeroGallery = () => (
             >
               <img
                 src={src}
-                alt={`Design Qeero ${(i % ALL_ASSETS.length) + 1}`}
+                alt={`Design Qeero ${(i % HERO_ASSETS_COL1.length) + 1}`}
                 className="w-full h-auto object-contain"
                 draggable={false}
               />
@@ -75,7 +75,7 @@ const HeroGallery = () => (
             >
               <img
                 src={src}
-                alt={`Design Qeero ${(i % ALL_ASSETS.length) + 1}`}
+                alt={`Design Qeero ${(i % HERO_ASSETS_COL2.length) + 1}`}
                 className="w-full h-auto object-contain"
                 draggable={false}
               />
