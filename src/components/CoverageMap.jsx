@@ -43,11 +43,11 @@ const CoverageMap = () => {
 
   return (
     <section
-      className="py-24 md:py-32 bg-[#111111] overflow-hidden border-t border-white/10 relative"
+      className="py-16 md:py-24 lg:py-28 bg-[#111111] overflow-hidden border-t border-white/10 relative"
       ref={containerRef}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-12 gap-12 xl:gap-16 items-center">
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
+        <div className="grid lg:grid-cols-12 gap-10 xl:gap-14 items-center">
 
           <div className="lg:col-span-5 text-left">
             <span className="qeero-badge bg-white/10 text-white border-white/20 mb-4 block w-fit">
@@ -92,28 +92,31 @@ const CoverageMap = () => {
               initial={{ opacity: 0, scale: 0.96 }}
               animate={isInView ? { opacity: 1, scale: 1 } : {}}
               transition={{ duration: 0.8, ease: 'easeOut' }}
-              className="rounded-3xl overflow-hidden border border-white/15 shadow-2xl bg-[#161616] p-2 md:p-3"
+              className="rounded-3xl overflow-hidden border border-white/15 shadow-2xl bg-gradient-to-b from-[#181818] to-[#121212] p-2.5 sm:p-4 md:p-5 relative group"
             >
+              <div className="absolute -top-24 -right-24 w-72 h-72 bg-[#22C55E]/10 rounded-full blur-3xl pointer-events-none" />
+              <div className="absolute -bottom-24 -left-24 w-72 h-72 bg-[#22C55E]/5 rounded-full blur-3xl pointer-events-none" />
+
               <svg
-                viewBox="0 0 280 200"
-                className="w-full h-auto rounded-2xl block"
-                style={{ background: '#161616' }}
+                viewBox="48 18 214 164"
+                className="w-full h-auto rounded-2xl block relative z-10"
+                style={{ background: '#151515' }}
               >
                 
-                {[0, 40, 80, 120, 160, 200, 240, 280].map(gx => (
-                  <line key={`gx${gx}`} x1={gx} y1={0} x2={gx} y2={200} stroke="#ffffff" strokeWidth="0.15" strokeOpacity="0.06" />
+                {[40, 70, 100, 130, 160, 190, 220, 250, 280].map(gx => (
+                  <line key={`gx${gx}`} x1={gx} y1={10} x2={gx} y2={190} stroke="#ffffff" strokeWidth="0.15" strokeOpacity="0.06" />
                 ))}
-                {[0, 40, 80, 120, 160, 200].map(gy => (
-                  <line key={`gy${gy}`} x1={0} y1={gy} x2={280} y2={gy} stroke="#ffffff" strokeWidth="0.15" strokeOpacity="0.06" />
+                {[20, 50, 80, 110, 140, 170, 200].map(gy => (
+                  <line key={`gy${gy}`} x1={40} y1={gy} x2={270} y2={gy} stroke="#ffffff" strokeWidth="0.15" strokeOpacity="0.06" />
                 ))}
 
-<path d={UK}       fill="#1f1f1f" stroke="#2e2e2e" strokeWidth="0.5" />
+                <path d={UK}       fill="#1f1f1f" stroke="#2e2e2e" strokeWidth="0.5" />
                 <path d={ITALY_P}  fill="#1f1f1f" stroke="#2e2e2e" strokeWidth="0.5" />
                 <path d={PORTUGAL} fill="#1f1f1f" stroke="#2e2e2e" strokeWidth="0.5" />
                 <path d={SPAIN}    fill="#1f1f1f" stroke="#2e2e2e" strokeWidth="0.5" />
                 <path d={ALGERIA}  fill="#1e1e1e" stroke="#2a2a2a" strokeWidth="0.5" />
 
-<path
+                <path
                   d={FRANCE}
                   fill="#1a2b1a"
                   stroke="#22C55E"
@@ -121,7 +124,7 @@ const CoverageMap = () => {
                   strokeOpacity="0.45"
                 />
 
-<path
+                <path
                   d={MOROCCO}
                   fill="#1a2518"
                   stroke="#22C55E"
@@ -129,11 +132,11 @@ const CoverageMap = () => {
                   strokeOpacity="0.35"
                 />
 
-<text x="60"  y="65"  fontSize="2.6" fill="rgba(255,255,255,0.1)" fontStyle="italic">{t.coverageMap.seaAtlantic}</text>
-                <text x="210" y="105" fontSize="2.6" fill="rgba(255,255,255,0.1)" fontStyle="italic">{t.coverageMap.seaMed}</text>
-                <text x="78"  y="175" fontSize="2.6" fill="rgba(255,255,255,0.1)" fontStyle="italic">{t.coverageMap.seaMorocco}</text>
+                <text x="56"  y="62"  fontSize="2.4" fill="rgba(255,255,255,0.1)" fontStyle="italic">{t.coverageMap.seaAtlantic}</text>
+                <text x="210" y="105" fontSize="2.4" fill="rgba(255,255,255,0.1)" fontStyle="italic">{t.coverageMap.seaMed}</text>
+                <text x="74"  y="173" fontSize="2.4" fill="rgba(255,255,255,0.1)" fontStyle="italic">{t.coverageMap.seaMorocco}</text>
 
-<motion.circle
+                <motion.circle
                   cx={hub.x} cy={hub.y} r="10"
                   fill="#22C55E" opacity="0.12"
                   initial={{ scale: 0 }}
@@ -141,7 +144,7 @@ const CoverageMap = () => {
                   transition={{ duration: 1 }}
                 />
 
-{cities.map((city, i) => (
+                {cities.map((city, i) => (
                   <motion.path
                     key={`line-${i}`}
                     d={city.arc || `M ${hub.x},${hub.y} L ${city.x},${city.y}`}
@@ -160,7 +163,7 @@ const CoverageMap = () => {
                   />
                 ))}
 
-<motion.circle
+                <motion.circle
                   cx={hub.x} cy={hub.y} r="2.8"
                   fill="#22C55E"
                   initial={{ scale: 0 }}
@@ -186,7 +189,7 @@ const CoverageMap = () => {
                   {t.coverageMap.cityPerigueux}
                 </motion.text>
 
-{cities.map((city, i) => (
+                {cities.map((city, i) => (
                   <g key={`node-${i}`}>
                     <motion.circle
                       cx={city.x} cy={city.y}
