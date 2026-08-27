@@ -88,23 +88,13 @@ const Portfolio = () => {
     <section id="portfolio" className="py-14 md:py-20 bg-white border-t border-black/5 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
-          <div>
-            <span className="qeero-badge mb-4 block w-fit">{t.portfolio.badge}</span>
-            <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-[#111111] leading-tight">
-              <TextEffect as="span" per="word" preset="blur">
-                {t.portfolio.title}
-              </TextEffect>
-            </h2>
-          </div>
-          <a
-            href="https://qeero.fr"
-            target="_blank"
-            rel="noreferrer"
-            className="text-[#22C55E] font-bold hover:text-[#16A34A] transition-colors flex items-center gap-1.5 text-sm shrink-0"
-          >
-            {t.portfolio.viewSite}
-          </a>
+        <div className="mb-8">
+          <span className="qeero-badge mb-4 block w-fit">{t.portfolio.badge}</span>
+          <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-[#111111] leading-tight">
+            <TextEffect as="span" per="word" preset="blur">
+              {t.portfolio.title}
+            </TextEffect>
+          </h2>
         </div>
 
         <div className="flex flex-wrap gap-2 mb-8">
