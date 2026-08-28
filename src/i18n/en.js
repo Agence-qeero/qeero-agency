@@ -393,5 +393,124 @@ export const en = {
     projectLabel: "Your project *",
     projectPlaceholder: "Describe your project, visual references, deadlines...",
     submitBtn: "Send my request"
+  },
+  legalNoticePage: {
+    title: "Legal Notice",
+    intro: "In accordance with legal transparency regulations, here is the legal information regarding the qeero.fr website.",
+    sections: {
+      publisher: {
+        title: "1. Site Publisher",
+        p1: "The qeero.fr website is published by QEERO, a creative agency specialized in visual communication, 2D/3D design, and print.",
+        email: "Email: agence@qeero.fr",
+        phone: "Phone: +33 6 49 73 52 76",
+        location: "Location: Nouvelle-Aquitaine, France",
+        director: "Publication Director: Founder & Creative Director of QEERO"
+      },
+      hosting: {
+        title: "2. Hosting",
+        p1: "The website is hosted on secure cloud infrastructure fully compliant with European data privacy standards (GDPR)."
+      },
+      intellectualProperty: {
+        title: "3. Intellectual Property",
+        p1: "All content on this website (texts, graphics, logos, videos, 2D/3D mockups, visual assets) is the exclusive property of QEERO or its respective client partners.",
+        p2: "Any reproduction, distribution, modification, or use without prior written consent is strictly prohibited."
+      },
+      personalData: {
+        title: "4. Personal Data & Cookies",
+        p1: "For all details regarding how your personal information is collected, processed, and secured, please review our ",
+        privacyLink: "Privacy Policy",
+        p2: " and our ",
+        cookieLink: "Cookie Policy",
+        p3: "."
+      },
+      liability: {
+        title: "5. Limitation of Liability",
+        p1: "QEERO strives to maintain accurate and up-to-date information on this website. However, the agency cannot be held liable for potential omissions, inaccuracies, or delays in updates."
+      },
+      contact: {
+        title: "6. Contact",
+        p1: "For any legal inquiries or information requests, please contact us at: "
+      }
+    }
+  },
+  privacyPolicyPage: {
+    title: "Privacy Policy",
+    intro: "This privacy policy explains how user personal data is collected and processed in compliance with the General Data Protection Regulation (GDPR).",
+    s1: {
+      title: "1. Collected Data",
+      desc: "We may collect the following information when you submit forms or contact us:",
+      items: [
+        "Full Name",
+        "Business or personal email address",
+        "Phone number",
+        "Project details and visual references submitted for design briefs"
+      ]
+    },
+    s2: {
+      title: "2. Purpose of Collection",
+      desc: "Collected data is used strictly for:",
+      items: [
+        "Responding to your quotes and inquiries",
+        "Managing client communication and ongoing design projects",
+        "Invoicing and customer support"
+      ]
+    },
+    s3: {
+      title: "3. Legal Basis",
+      desc: "Processing is based on:",
+      items: [
+        "Explicit user consent upon form submission",
+        "Execution of a contract or pre-contractual measures (quotes, briefs)",
+        "Legitimate interest in ensuring reliable agency services"
+      ]
+    },
+    s4: {
+      title: "4. Data Retention",
+      desc: "Prospective client data is retained for a maximum of 6 months following the last exchange, and client records are kept in accordance with statutory accounting obligations."
+    },
+    s5: {
+      title: "5. Data Sharing & Security",
+      desc: "Your data is never sold, leased, or transferred to third parties. It is shared only with technical service providers essential to hosting and email operations under optimal security standards."
+    },
+    s6: {
+      title: "6. Your Rights (GDPR)",
+      desc: "Under the GDPR, you have the right to access, rectify, delete, and object to the processing of your personal data. To exercise these rights, email us at: "
+    },
+    s7: {
+      title: "7. Cookies",
+      desc: "This site uses cookies to ensure optimal performance and traffic insights. See our ",
+      cookieLink: "Cookie Policy",
+      descEnd: " for more details."
+    }
+  },
+  cookiePolicyPage: {
+    title: "Cookie Policy",
+    intro: "When visiting Qeero, cookies may be placed on your device. This policy outlines what cookies are used and how you can manage them.",
+    s1: {
+      title: "1. What is a Cookie?",
+      desc: "A cookie is a small text file saved to your device when visiting a website. It helps ensure seamless navigation, remember your preferences, and measure website audience."
+    },
+    s2: {
+      title: "2. Types of Cookies Used",
+      desc: "We use the following categories:",
+      items: [
+        { name: "Strictly Necessary Cookies", text: "Essential for core technical functionality and website security." },
+        { name: "Preference Cookies", text: "Save your preferences (such as your chosen language FR/EN or theme)." },
+        { name: "Analytics / Audience Measurement Cookies", text: "Help us understand how visitors interact with our site to improve user experience." }
+      ]
+    },
+    s3: {
+      title: "3. Consent & Cookie Management",
+      desc: "Upon your first visit, a cookie banner allows you to accept or decline non-essential cookies. You can also configure cookie settings directly in your browser:",
+      browsers: "Help guides for popular browsers:"
+    },
+    s4: {
+      title: "4. Retention Period",
+      desc: "Cookies are retained for a maximum duration of 13 months in accordance with GDPR guidelines."
+    },
+    s5: {
+      title: "5. Contact",
+      desc: "For questions concerning our cookie policy, please contact us at: "
+    }
   }
 };

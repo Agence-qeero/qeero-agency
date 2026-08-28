@@ -11,6 +11,7 @@ import Home from './pages/Home';
 import OrderProcess from './pages/OrderProcess';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import CookiePolicy from './pages/CookiePolicy';
+import LegalNotice from './pages/LegalNotice';
 import NotFound from './pages/NotFound';
 
 function App() {
@@ -28,6 +29,8 @@ function App() {
                 <Route path="/order-process" element={<OrderProcess />} />
                 <Route path="/privacy-policy" element={<PrivacyPolicy />} />
                 <Route path="/cookie-policy" element={<CookiePolicy />} />
+                <Route path="/legal-notice" element={<LegalNotice />} />
+                <Route path="/mentions-legales" element={<LegalNotice />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </div>

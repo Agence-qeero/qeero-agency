@@ -198,7 +198,7 @@ useEffect(() => {
       <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-white/30">
         <p>{t.footer.rights}</p>
         <div className="flex gap-6">
-          <a href="#" className="hover:text-white transition-colors">{t.footer.legal1}</a>
+          <Link to="/legal-notice" className="hover:text-white transition-colors">{t.footer.legal1}</Link>
           <Link to="/privacy-policy" className="hover:text-white transition-colors">{t.footer.legal2}</Link>
           <Link to="/cookie-policy" className="hover:text-white transition-colors">{t.footer.cookiePolicy || 'Politique de cookies'}</Link>
         </div>

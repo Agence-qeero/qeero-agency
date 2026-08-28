@@ -393,5 +393,124 @@ export const fr = {
     projectLabel: "Votre projet *",
     projectPlaceholder: "Décrivez votre projet, vos références visuelles, vos délais...",
     submitBtn: "Envoyer ma demande"
+  },
+  legalNoticePage: {
+    title: "Mentions Légales",
+    intro: "Conformément aux dispositions de la loi pour la confiance dans l'économie numérique, voici les informations légales relatives au site qeero.fr.",
+    sections: {
+      publisher: {
+        title: "1. Éditeur du site",
+        p1: "Le site qeero.fr est édité par l'agence QEERO, spécialisée en communication visuelle, design 2D/3D et print.",
+        email: "Email : agence@qeero.fr",
+        phone: "Téléphone : +33 6 49 73 52 76",
+        location: "Localisation : Nouvelle-Aquitaine, France",
+        director: "Directeur de la publication : Fondateur & Directeur Créatif QEERO"
+      },
+      hosting: {
+        title: "2. Hébergement",
+        p1: "Le site est hébergé par des infrastructures cloud sécurisées et conformes aux normes européennes en vigueur (RGPD)."
+      },
+      intellectualProperty: {
+        title: "3. Propriété intellectuelle",
+        p1: "L'ensemble des contenus présents sur le site (textes, visuels, logos, vidéos, maquettes 2D/3D, éléments graphiques) sont la propriété exclusive de QEERO ou de ses clients partenaires.",
+        p2: "Toute reproduction, distribution, modification ou utilisation sans accord préalable écrit est strictement interdite."
+      },
+      personalData: {
+        title: "4. Données personnelles et cookies",
+        p1: "Pour toute information sur la collecte, le traitement et la protection de vos données personnelles, veuillez consulter notre ",
+        privacyLink: "Politique de confidentialité",
+        p2: " ainsi que notre ",
+        cookieLink: "Politique de cookies",
+        p3: "."
+      },
+      liability: {
+        title: "5. Limitation de responsabilité",
+        p1: "QEERO s'efforce de fournir des informations exactes et à jour sur son site. Toutefois, l'agence ne saurait être tenue responsable des omissions, inexactitudes ou carences dans la mise à jour."
+      },
+      contact: {
+        title: "6. Contact",
+        p1: "Pour toute question juridique ou demande d'information, vous pouvez nous écrire à : "
+      }
+    }
+  },
+  privacyPolicyPage: {
+    title: "Politique de confidentialité",
+    intro: "La présente politique de confidentialité a pour objectif d'informer les utilisateurs du site sur la collecte et l'utilisation de leurs données personnelles conformément au Règlement Général sur la Protection des Données (RGPD).",
+    s1: {
+      title: "1. Données collectées",
+      desc: "Nous pouvons collecter les données suivantes lorsque vous utilisez nos formulaires ou nous contactez :",
+      items: [
+        "Nom et prénom",
+        "Adresse email professionnelle ou personnelle",
+        "Numéro de téléphone",
+        "Détails et informations transmises relatifs à votre projet de design"
+      ]
+    },
+    s2: {
+      title: "2. Finalité de la collecte",
+      desc: "Les données collectées sont strictement utilisées pour :",
+      items: [
+        "Répondre à vos demandes de devis et prises de contact",
+        "Gérer la relation commerciale et le suivi de vos projets créatifs",
+        "Assurer la facturation et le service après-vente"
+      ]
+    },
+    s3: {
+      title: "3. Base légale",
+      desc: "La collecte repose sur :",
+      items: [
+        "Le consentement explicite de l'utilisateur lors de l'envoi d'un formulaire",
+        "L'exécution d'un contrat ou de mesures précontractuelles (devis, brief projet)",
+        "L'intérêt légitime de l'entreprise à assurer le bon fonctionnement de ses services"
+      ]
+    },
+    s4: {
+      title: "4. Durée de conservation",
+      desc: "Les données relatives aux prospects sont conservées pendant une durée maximale de 6 mois à compter du dernier contact, et les données clients conformément aux obligations légales de facturation."
+    },
+    s5: {
+      title: "5. Partage et sécurité des données",
+      desc: "Vos données ne sont en aucun cas vendues, louées ou cédées à des tiers. Elles ne sont partagées qu'avec des prestataires techniques indispensables au fonctionnement du site et de notre messagerie, avec un niveau de sécurité optimal."
+    },
+    s6: {
+      title: "6. Vos droits (RGPD)",
+      desc: "Conformément au RGPD, vous disposez d'un droit d'accès, de rectification, de suppression et d'opposition sur vos données personnelles. Pour exercer ces droits, contactez-nous à : "
+    },
+    s7: {
+      title: "7. Cookies",
+      desc: "Le site utilise des cookies pour assurer son bon fonctionnement et mesurer l'audience. Consultez notre ",
+      cookieLink: "politique de cookies",
+      descEnd: " pour en savoir plus."
+    }
+  },
+  cookiePolicyPage: {
+    title: "Politique de cookies",
+    intro: "Lors de la consultation du site Qeero, des cookies peuvent être déposés sur votre terminal. Cette politique vous explique leur rôle et vos options de gestion.",
+    s1: {
+      title: "1. Qu'est-ce qu'un cookie ?",
+      desc: "Un cookie est un petit fichier texte enregistré sur votre appareil lors de votre visite. Il permet d'assurer la navigation, mémoriser vos préférences et mesurer l'audience."
+    },
+    s2: {
+      title: "2. Types de cookies utilisés",
+      desc: "Nous utilisons les catégories suivantes :",
+      items: [
+        { name: "Cookies strictement nécessaires", text: "Indispensables au fonctionnement technique et à la sécurité du site." },
+        { name: "Cookies de préférences", text: "Mémorisent vos réglages (comme le choix de la langue FR/EN ou le thème)." },
+        { name: "Cookies analytiques / mesure d'audience", text: "Permettent de comprendre comment les visiteurs interagissent avec notre site afin d'en optimiser l'ergonomie." }
+      ]
+    },
+    s3: {
+      title: "3. Consentement et gestion",
+      desc: "Lors de votre première visite, un bandeau vous permet d'accepter ou refuser les cookies. Vous pouvez à tout moment modifier vos réglages dans votre navigateur :",
+      browsers: "Liens d'aide selon votre navigateur :"
+    },
+    s4: {
+      title: "4. Durée de conservation",
+      desc: "Les cookies sont conservés pour une durée maximale de 13 mois conformément aux recommandations de la CNIL et du RGPD."
+    },
+    s5: {
+      title: "5. Contact",
+      desc: "Pour toute question relative à cette politique de cookies, écrivez-nous à : "
+    }
   }
 };
