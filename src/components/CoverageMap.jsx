@@ -46,7 +46,7 @@ const CoverageMap = () => {
       className="py-16 md:py-24 lg:py-28 bg-[#111111] overflow-hidden border-t border-white/10 relative"
       ref={containerRef}
     >
-      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
+      <div className="px-4 sm:px-6 lg:px-8 xl:px-[5vw]">
         <div className="grid lg:grid-cols-12 gap-10 xl:gap-14 items-center">
 
           <div className="lg:col-span-5 text-left">

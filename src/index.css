@@ -7,7 +7,7 @@
   --color-qeero-green-light: #DCFCE7;
   --color-qeero-green-muted: #F0FDF4;
 
---color-canvas: #F8F8F6;
+  --color-canvas: #F8F8F6;
   --color-surface: #FFFFFF;
   --color-surface-hover: #F9FAFB;
   --color-text-primary: #111111;
@@ -16,6 +16,9 @@
   --color-border: rgba(0, 0, 0, 0.07);
   
   --font-sans: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;
+
+  /* Custom max-width: 1440px — wider desktop layout */
+  --width-8xl: 90rem;
 }
 
 @layer base {

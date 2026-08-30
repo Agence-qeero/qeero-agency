@@ -24,57 +24,59 @@ const InteractivePlayground = () => {
 
   return (
     <section className="py-20 bg-white border-t border-black/5 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-10 text-center">
-        <span className="qeero-badge mb-4 mx-auto block w-fit">
-          {t.playground?.badge || '// Bac à sable interactif'}
-        </span>
-        <h2 className="text-4xl md:text-5xl font-extrabold text-[#111111] tracking-tight mb-4">
-          {t.playground?.title || 'Tirez, lancez,'} <span className="text-gradient-qeero">{t.playground?.titleHighlight || 'explorez.'}</span>
-        </h2>
-        <p className="text-lg text-gray-500 max-w-2xl mx-auto">
-          {t.playground?.desc || 'Jouez avec nos créations. Utilisez votre souris ou votre doigt pour déplacer les éléments librement sur la table de travail.'}
-        </p>
-      </div>
-
-      <div 
-        ref={containerRef} 
-        className="relative w-full max-w-7xl mx-auto h-[600px] bg-[#F8F8F6] rounded-[3rem] border border-black/10 shadow-inner overflow-hidden cursor-crosshair"
-        style={{ backgroundImage: 'radial-gradient(circle, #E5E7EB 2px, transparent 2px)', backgroundSize: '40px 40px' }}
-      >
-        <div className="absolute inset-0 flex items-center justify-center opacity-10 pointer-events-none">
-          <span className="text-9xl font-black tracking-tighter">QEERO</span>
+      <div className="px-4 sm:px-6 lg:px-8 xl:px-[5vw]">
+        <div className="mb-10 text-center">
+          <span className="qeero-badge mb-4 mx-auto block w-fit">
+            {t.playground?.badge || '// Bac à sable interactif'}
+          </span>
+          <h2 className="text-4xl md:text-5xl font-extrabold text-[#111111] tracking-tight mb-4">
+            {t.playground?.title || 'Tirez, lancez,'} <span className="text-gradient-qeero">{t.playground?.titleHighlight || 'explorez.'}</span>
+          </h2>
+          <p className="text-lg text-gray-500 max-w-2xl mx-auto">
+            {t.playground?.desc || 'Jouez avec nos créations. Utilisez votre souris ou votre doigt pour déplacer les éléments librement sur la table de travail.'}
+          </p>
         </div>
 
-        {artifacts.map((item, i) => (
-          <motion.div
-            key={item.id}
-            drag
-            dragConstraints={containerRef}
-            dragElastic={0.2}
-            dragMomentum={true}
-            whileDrag={{ scale: 1.05, cursor: 'grabbing', zIndex: 50, boxShadow: '0 25px 50px -12px rgba(0,0,0,0.25)' }}
-            whileHover={{ scale: 1.02 }}
-            initial={{ x: 0, y: 0, rotate: item.rotate }}
-            style={{ 
-              position: 'absolute',
-              left: item.x,
-              top: item.y,
-              cursor: 'grab',
-              zIndex: i + 10
-            }}
-            className="w-48 sm:w-64 bg-white p-3 rounded-2xl shadow-xl border border-black/5 flex flex-col gap-3"
-          >
-            <div className="w-full aspect-square rounded-xl overflow-hidden bg-gray-100">
-              <img src={item.src} alt="" className="w-full h-full object-cover pointer-events-none" />
-            </div>
-            <div className="flex items-center justify-between px-1">
-              <span className="text-sm font-bold text-[#111111] pointer-events-none">{item.label}</span>
-              <span className="text-xs font-black text-[#22C55E] bg-[#F0FDF4] px-2 py-1 rounded-full pointer-events-none">
-                {t.playground?.drag || 'DRAG'}
-              </span>
-            </div>
-          </motion.div>
-        ))}
+        <div 
+          ref={containerRef} 
+          className="relative w-full h-[600px] bg-[#F8F8F6] rounded-[3rem] border border-black/10 shadow-inner overflow-hidden cursor-crosshair"
+          style={{ backgroundImage: 'radial-gradient(circle, #E5E7EB 2px, transparent 2px)', backgroundSize: '40px 40px' }}
+        >
+          <div className="absolute inset-0 flex items-center justify-center opacity-10 pointer-events-none">
+            <span className="text-9xl font-black tracking-tighter">QEERO</span>
+          </div>
+
+          {artifacts.map((item, i) => (
+            <motion.div
+              key={item.id}
+              drag
+              dragConstraints={containerRef}
+              dragElastic={0.2}
+              dragMomentum={true}
+              whileDrag={{ scale: 1.05, cursor: 'grabbing', zIndex: 50, boxShadow: '0 25px 50px -12px rgba(0,0,0,0.25)' }}
+              whileHover={{ scale: 1.02 }}
+              initial={{ x: 0, y: 0, rotate: item.rotate }}
+              style={{ 
+                position: 'absolute',
+                left: item.x,
+                top: item.y,
+                cursor: 'grab',
+                zIndex: i + 10
+              }}
+              className="w-48 sm:w-64 bg-white p-3 rounded-2xl shadow-xl border border-black/5 flex flex-col gap-3"
+            >
+              <div className="w-full aspect-square rounded-xl overflow-hidden bg-gray-100">
+                <img src={item.src} alt="" className="w-full h-full object-cover pointer-events-none" />
+              </div>
+              <div className="flex items-center justify-between px-1">
+                <span className="text-sm font-bold text-[#111111] pointer-events-none">{item.label}</span>
+                <span className="text-xs font-black text-[#22C55E] bg-[#F0FDF4] px-2 py-1 rounded-full pointer-events-none">
+                  {t.playground?.drag || 'DRAG'}
+                </span>
+              </div>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );

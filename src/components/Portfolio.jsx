@@ -86,7 +86,7 @@ const Portfolio = () => {
 
   return (
     <section id="portfolio" className="py-14 md:py-20 bg-white border-t border-black/5 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="px-4 sm:px-6 lg:px-8 xl:px-[5vw]">
 
         <div className="mb-8">
           <span className="qeero-badge mb-4 block w-fit">{t.portfolio.badge}</span>

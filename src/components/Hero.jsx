@@ -25,7 +25,7 @@ const Hero = () => {
         />
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full grid lg:grid-cols-[1fr_480px] gap-12 xl:gap-20 items-center">
+      <div className="px-4 sm:px-6 lg:px-8 xl:px-[5vw] w-full grid lg:grid-cols-[1fr_480px] gap-12 xl:gap-20 items-center">
 
 <div className="flex flex-col items-start text-left z-10">
 
