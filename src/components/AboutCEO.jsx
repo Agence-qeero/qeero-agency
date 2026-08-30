@@ -105,8 +105,8 @@ const AboutCEO = () => {
 
     </div>
 
-<div className="relative z-10 px-4 sm:px-6 lg:px-8 xl:px-[5vw]">
-      <div className="grid lg:grid-cols-2 gap-12 xl:gap-20 items-center">
+<div className="relative z-10 px-4 sm:px-6 lg:px-12 xl:px-16 2xl:px-24">
+      <div className="grid lg:grid-cols-[400px_1fr] xl:grid-cols-[460px_1fr] 2xl:grid-cols-[520px_1fr] gap-12 xl:gap-20 2xl:gap-28 items-center">
 
 <motion.div
           initial={{ opacity: 0, x: -40 }}
@@ -116,25 +116,25 @@ const AboutCEO = () => {
           className="relative flex justify-center lg:justify-start"
         >
           <motion.div
-            className="absolute -bottom-6 -left-6 w-64 h-64 rounded-[2rem] bg-[#22C55E]/20 z-0"
+            className="absolute -bottom-6 -left-6 w-64 h-64 xl:w-80 xl:h-80 rounded-[2rem] bg-[#22C55E]/20 z-0"
             animate={{ rotate: [0, 4, 0, -4, 0] }}
             transition={{ duration: 12, repeat: Infinity, ease: 'easeInOut' }}
           />
           <motion.div
-            className="absolute -top-4 -right-4 w-28 h-28 rounded-full bg-[#22C55E]/15 z-0"
+            className="absolute -top-4 -right-4 w-28 h-28 xl:w-36 xl:h-36 rounded-full bg-[#22C55E]/15 z-0"
             animate={{ scale: [1, 1.2, 1], x: [0, 8, 0], y: [0, -8, 0] }}
             transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
           />
 
-          <div className="relative z-10 w-72 md:w-80 rounded-[2rem] overflow-hidden shadow-2xl shadow-[#22C55E]/15 border border-[#22C55E]/20">
+          <div className="relative z-10 w-72 md:w-80 xl:w-96 2xl:w-[420px] rounded-[2rem] overflow-hidden shadow-2xl shadow-[#22C55E]/15 border border-[#22C55E]/20">
             <img
               src="/CEO.jpeg"
               alt="Fondateur de Qeero"
               className="w-full h-full object-cover object-top"
             />
             <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[#111111]/90 via-[#111111]/40 to-transparent px-6 py-5">
-              <p className="text-white font-extrabold text-lg leading-tight">{t.aboutCEO.role}</p>
-              <p className="text-[#22C55E] text-sm font-semibold mt-0.5">{t.aboutCEO.agency}</p>
+              <p className="text-white font-extrabold text-lg xl:text-xl leading-tight">{t.aboutCEO.role}</p>
+              <p className="text-[#22C55E] text-sm xl:text-base font-semibold mt-0.5">{t.aboutCEO.agency}</p>
             </div>
           </div>
         </motion.div>

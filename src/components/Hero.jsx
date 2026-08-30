@@ -25,15 +25,15 @@ const Hero = () => {
         />
       </div>
 
-      <div className="px-4 sm:px-6 lg:px-8 xl:px-[5vw] w-full grid lg:grid-cols-[1fr_480px] gap-12 xl:gap-20 items-center">
+      <div className="px-4 sm:px-6 lg:px-12 xl:px-16 2xl:px-24 w-full grid lg:grid-cols-[1.15fr_0.85fr] xl:grid-cols-[1.2fr_1fr] 2xl:grid-cols-[1.25fr_1fr] gap-12 xl:gap-20 2xl:gap-28 items-center">
 
-<div className="flex flex-col items-start text-left z-10">
+        <div className="flex flex-col items-start text-left z-10">
 
-<span className="qeero-badge mb-7">
+          <span className="qeero-badge mb-7 text-xs xl:text-sm py-2 px-5">
             {t.hero.badge}
           </span>
 
-<h1 key={language} className="text-4xl sm:text-5xl lg:text-[3.4rem] xl:text-[3.8rem] font-extrabold tracking-tight leading-[1.08] mb-5 text-[#111111]">
+          <h1 key={language} className="text-4xl sm:text-5xl lg:text-[3.4rem] xl:text-[4.2rem] 2xl:text-[4.8rem] font-extrabold tracking-tight leading-[1.06] mb-6 text-[#111111]">
             <TextEffect as="span" per="word" preset="blur">
               {t.hero.title}
             </TextEffect>
@@ -45,18 +45,18 @@ const Hero = () => {
             </span>
           </h1>
 
-<p key={`p-${language}`} className="text-lg text-gray-500 leading-relaxed mb-8 max-w-xl font-normal">
+          <p key={`p-${language}`} className="text-lg xl:text-xl text-gray-500 leading-relaxed mb-8 max-w-xl xl:max-w-2xl font-normal">
             {t.hero.offer}
           </p>
 
-<div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+          <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
             <Magnetic intensity={0.2} springOptions={{ bounce: 0.1 }} actionArea="global">
-              <a href="#services" className="btn-qeero px-9 py-4 text-base text-center w-full sm:w-auto block">
+              <a href="#services" className="btn-qeero px-9 xl:px-12 py-4 xl:py-4.5 text-base xl:text-lg text-center w-full sm:w-auto block shadow-lg">
                 {t.hero.ctaPrimary}
               </a>
             </Magnetic>
             <Magnetic intensity={0.2} springOptions={{ bounce: 0.1 }} actionArea="global">
-              <a href="#portfolio" className="btn-outline px-9 py-4 text-base text-center w-full sm:w-auto block">
+              <a href="#portfolio" className="btn-outline px-9 xl:px-12 py-4 xl:py-4.5 text-base xl:text-lg text-center w-full sm:w-auto block">
                 {t.hero.ctaSecondary}
               </a>
             </Magnetic>

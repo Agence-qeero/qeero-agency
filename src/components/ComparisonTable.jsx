@@ -14,11 +14,11 @@ const ComparisonTable = () => {
   const rows = t.comparison?.rows || [];
 
   return (
-    <section className="py-14 md:py-20 bg-[#F8F8F6] border-t border-black/5">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-16 md:py-24 bg-[#F8F8F6] border-t border-black/5">
+      <div className="max-w-5xl xl:max-w-6xl 2xl:max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
         <div className="text-center mb-14">
           <span className="qeero-badge mb-5 block w-fit mx-auto">{t.comparison?.badge || '// Pourquoi QEERO ?'}</span>
-          <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-[#111111]">
+          <h2 className="text-3xl md:text-4xl xl:text-5xl font-extrabold tracking-tight text-[#111111]">
             {t.comparison?.title || 'La meilleure option,'}<br />
             <span className="text-gradient-qeero">{t.comparison?.titleHighlight || 'sans compromis.'}</span>
           </h2>
@@ -28,20 +28,20 @@ const ComparisonTable = () => {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="flat-card rounded-[2rem] overflow-hidden"
+          className="flat-card rounded-[2rem] overflow-x-auto"
         >
-          
-          <div className="grid grid-cols-4 bg-[#111111] text-white text-sm font-bold">
-            <div className="p-5 text-white/50">{t.comparison?.feature || 'Fonctionnalité'}</div>
-            <div className="p-5 text-center bg-[#22C55E] text-white">
-              <span className="block text-xs font-black uppercase tracking-widest mb-1 opacity-70">
-                {t.comparison?.recommended || 'Recommandé'}
-              </span>
-              {t.comparison?.qeero || 'QEERO'}
+          <div className="min-w-[580px]">
+            <div className="grid grid-cols-4 bg-[#111111] text-white text-sm xl:text-base font-bold">
+              <div className="p-5 xl:p-6 text-white/50">{t.comparison?.feature || 'Fonctionnalité'}</div>
+              <div className="p-5 xl:p-6 text-center bg-[#22C55E] text-white">
+                <span className="block text-xs font-black uppercase tracking-widest mb-1 opacity-70">
+                  {t.comparison?.recommended || 'Recommandé'}
+                </span>
+                {t.comparison?.qeero || 'QEERO'}
+              </div>
+              <div className="p-5 xl:p-6 text-center text-white/60">{t.comparison?.freelance || 'Freelance'}</div>
+              <div className="p-5 xl:p-6 text-center text-white/60">{t.comparison?.agency || 'Agence trad.'}</div>
             </div>
-            <div className="p-5 text-center text-white/60">{t.comparison?.freelance || 'Freelance'}</div>
-            <div className="p-5 text-center text-white/60">{t.comparison?.agency || 'Agence trad.'}</div>
-          </div>
 
 {rows.map((row, i) => (
             <div
@@ -56,6 +56,7 @@ const ComparisonTable = () => {
               <div className="p-4 flex items-center justify-center"><Cell val={row.agence} /></div>
             </div>
           ))}
+          </div>
         </motion.div>
       </div>
     </section>

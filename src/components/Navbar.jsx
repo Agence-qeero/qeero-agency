@@ -59,8 +59,8 @@ const Navbar = () => {
   return (
     <>
       <nav className={`fixed w-full z-50 top-0 transition-all duration-300 ${scrolled || mobileOpen ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-black/5' : 'bg-transparent'}`}>
-        <div className="px-4 sm:px-6 lg:px-8 xl:px-[5vw]">
-          <div className="flex justify-between items-center h-20">
+        <div className="px-4 sm:px-6 lg:px-12 xl:px-16 2xl:px-24">
+          <div className="flex justify-between items-center h-20 xl:h-24">
 
             <a href="/" className="flex-shrink-0 flex items-center gap-2 group">
               <img src="/Q.png" alt="Qeero Logo" className="h-10 w-auto object-contain" />

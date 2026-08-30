@@ -18,7 +18,7 @@ const ServicesPricing = () => {
 
   return (
     <section id="services" className="py-24 bg-[#F8F8F6] border-y border-[var(--color-q-border)]">
-      <div className="px-4 sm:px-6 lg:px-8 xl:px-[5vw]">
+      <div className="px-4 sm:px-6 lg:px-12 xl:px-16 2xl:px-24">
         <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-6 items-stretch">
 
 {[0, 1, 2].map((index) => {

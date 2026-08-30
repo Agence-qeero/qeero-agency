@@ -85,24 +85,24 @@ const Portfolio = () => {
   const next = () => setLightboxIndex(i => (i + 1) % filtered.length);
 
   return (
-    <section id="portfolio" className="py-14 md:py-20 bg-white border-t border-black/5 overflow-hidden">
-      <div className="px-4 sm:px-6 lg:px-8 xl:px-[5vw]">
+    <section id="portfolio" className="py-16 md:py-24 bg-white border-t border-black/5 overflow-hidden">
+      <div className="px-4 sm:px-6 lg:px-12 xl:px-16 2xl:px-24">
 
-        <div className="mb-8">
+        <div className="mb-10 xl:mb-12">
           <span className="qeero-badge mb-4 block w-fit">{t.portfolio.badge}</span>
-          <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-[#111111] leading-tight">
+          <h2 className="text-3xl md:text-4xl xl:text-5xl font-extrabold tracking-tight text-[#111111] leading-tight">
             <TextEffect as="span" per="word" preset="blur">
               {t.portfolio.title}
             </TextEffect>
           </h2>
         </div>
 
-        <div className="flex flex-wrap gap-2 mb-8">
+        <div className="flex flex-wrap gap-2.5 mb-10">
           {categories.map(cat => (
             <button
               key={cat}
               onClick={() => setActive(cat)}
-              className={`px-4 py-1.5 rounded-full text-xs font-bold transition-all duration-200 border ${
+              className={`px-4 xl:px-5 py-1.5 xl:py-2 rounded-full text-xs xl:text-sm font-bold transition-all duration-200 border cursor-pointer ${
                 active === cat
                   ? 'bg-[#22C55E] text-white border-[#22C55E] shadow-sm'
                   : 'bg-white text-gray-600 border-black/10 hover:border-[#22C55E]/40 hover:text-[#22C55E]'
@@ -115,7 +115,7 @@ const Portfolio = () => {
 
         <motion.div 
           layout 
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-6 xl:gap-8 items-stretch"
         >
           <AnimatePresence>
             {filtered.map((item, i) => (

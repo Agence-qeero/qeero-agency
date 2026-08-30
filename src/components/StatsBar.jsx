@@ -76,8 +76,8 @@ const StatsBar = () => {
   const stats = getStats(t);
   
   return (
-  <section className="py-16 md:py-20 bg-[#111111]">
-    <div className="px-4 sm:px-6 lg:px-8 xl:px-[5vw]">
+  <section className="py-16 md:py-24 bg-[#111111]">
+    <div className="px-4 sm:px-6 lg:px-12 xl:px-16 2xl:px-24">
       <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-0 md:divide-x md:divide-white/10">
         {stats.map((s, i) => (
           <motion.div
@@ -86,13 +86,13 @@ const StatsBar = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: i * 0.1 }}
-            className="flex flex-col items-center text-center md:px-8"
+            className="flex flex-col items-center text-center md:px-8 xl:px-12"
           >
-            <div className="mb-4">{s.icon}</div>
-            <div className="text-4xl font-black text-[#22C55E] leading-none mb-2">
+            <div className="mb-4 xl:scale-125 transition-transform">{s.icon}</div>
+            <div className="text-4xl lg:text-5xl xl:text-6xl font-black text-[#22C55E] leading-none mb-2">
               <Counter target={s.value} suffix={s.suffix} />
             </div>
-            <p className="text-sm font-semibold text-white/50">{s.label}</p>
+            <p className="text-sm xl:text-base font-semibold text-white/60">{s.label}</p>
           </motion.div>
         ))}
       </div>

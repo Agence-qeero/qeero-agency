@@ -70,8 +70,8 @@ useEffect(() => {
   }, [inView]);
 
   return (
-  <footer className="bg-[#111111] text-white pt-16 pb-8">
-    <div className="px-4 sm:px-6 lg:px-8 xl:px-[5vw]">
+  <footer className="bg-[#111111] text-white pt-16 md:pt-24 pb-8">
+    <div className="px-4 sm:px-6 lg:px-12 xl:px-16 2xl:px-24">
 
 <motion.div
         ref={ctaRef}

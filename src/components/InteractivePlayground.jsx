@@ -23,8 +23,8 @@ const InteractivePlayground = () => {
   ];
 
   return (
-    <section className="py-20 bg-white border-t border-black/5 overflow-hidden">
-      <div className="px-4 sm:px-6 lg:px-8 xl:px-[5vw]">
+    <section className="py-20 md:py-28 bg-white border-t border-black/5 overflow-hidden">
+      <div className="px-4 sm:px-6 lg:px-12 xl:px-16 2xl:px-24">
         <div className="mb-10 text-center">
           <span className="qeero-badge mb-4 mx-auto block w-fit">
             {t.playground?.badge || '// Bac à sable interactif'}
@@ -39,7 +39,7 @@ const InteractivePlayground = () => {
 
         <div 
           ref={containerRef} 
-          className="relative w-full h-[600px] bg-[#F8F8F6] rounded-[3rem] border border-black/10 shadow-inner overflow-hidden cursor-crosshair"
+          className="relative w-full h-[550px] lg:h-[620px] xl:h-[700px] 2xl:h-[780px] bg-[#F8F8F6] rounded-[3rem] border border-black/10 shadow-inner overflow-hidden cursor-crosshair"
           style={{ backgroundImage: 'radial-gradient(circle, #E5E7EB 2px, transparent 2px)', backgroundSize: '40px 40px' }}
         >
           <div className="absolute inset-0 flex items-center justify-center opacity-10 pointer-events-none">

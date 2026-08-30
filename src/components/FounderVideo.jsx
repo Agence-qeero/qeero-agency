@@ -30,7 +30,7 @@ const FounderVideo = () => {
 
   return (
     <section className="py-16 md:py-24 bg-white border-t border-black/5">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-5xl xl:max-w-6xl 2xl:max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
 
 <div className="text-center mb-10">
           <span className="qeero-badge mb-5 block w-fit mx-auto">

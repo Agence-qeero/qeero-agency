@@ -9,8 +9,8 @@ const Testimonials = () => {
   const reviews = getReviews(t);
 
   return (
-  <section className="py-14 md:py-20 bg-[#F8F8F6] border-t border-black/5">
-    <div className="px-4 sm:px-6 lg:px-8 xl:px-[5vw]">
+  <section className="py-16 md:py-24 bg-[#F8F8F6] border-t border-black/5">
+    <div className="px-4 sm:px-6 lg:px-12 xl:px-16 2xl:px-24">
 
       <div className="text-center mb-14">
         <span className="qeero-badge mb-5 block w-fit mx-auto">{t.testimonials.badge}</span>

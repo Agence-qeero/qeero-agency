@@ -26,7 +26,7 @@ const col2 = [
 const GAP = 16;  
 
 const HeroGallery = () => (
-  <div className="relative w-full h-[600px] rounded-[2.5rem] overflow-hidden">
+  <div className="relative w-full h-[550px] lg:h-[620px] xl:h-[700px] 2xl:h-[780px] rounded-[2.5rem] overflow-hidden">
     
     <div className="absolute inset-0 rounded-[2.5rem] border border-black/8 shadow-2xl pointer-events-none z-20" />
 

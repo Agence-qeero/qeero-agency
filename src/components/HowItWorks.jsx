@@ -47,8 +47,8 @@ const HowItWorks = () => {
   ];
 
   return (
-    <section id="how-it-works" className="py-14 md:py-20 bg-[#F8F8F6] border-t border-black/5">
-      <div className="px-4 sm:px-6 lg:px-8 xl:px-[5vw]">
+    <section id="how-it-works" className="py-16 md:py-24 bg-[#F8F8F6] border-t border-black/5">
+      <div className="px-4 sm:px-6 lg:px-12 xl:px-16 2xl:px-24">
 
         <div className="text-center mb-16 max-w-2xl mx-auto">
           <span className="qeero-badge mb-5 block w-fit mx-auto">{t.howItWorks.badge}</span>

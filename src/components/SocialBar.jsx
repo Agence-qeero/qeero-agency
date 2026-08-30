@@ -63,7 +63,7 @@ const SocialBar = () => {
   const [expanded, setExpanded] = useState(false);
 
   return (
-    <div className="fixed right-4 top-1/2 -translate-y-1/2 z-40 flex flex-col items-center gap-2">
+    <div className="hidden md:flex fixed right-4 top-1/2 -translate-y-1/2 z-40 flex-col items-center gap-2">
       
       <button
         onClick={() => setExpanded(e => !e)}
