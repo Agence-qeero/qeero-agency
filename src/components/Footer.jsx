@@ -179,9 +179,15 @@ useEffect(() => {
         <div>
           <h4 className="font-bold text-white text-sm uppercase tracking-wider mb-5">{t.footer.servicesTitle}</h4>
           <ul className="space-y-3 text-sm text-white/50">
-            {t.footer.servicesList.map(s => (
-              <li key={s}><a href="#services" className="hover:text-[#22C55E] transition-colors">{s}</a></li>
-            ))}
+            {t.footer.servicesList.map((s, idx) => {
+              const targets = ['/#portfolio', '/#portfolio', '/#how-it-works', '/#services', '/#faq'];
+              const href = targets[idx] || '/#services';
+              return (
+                <li key={s}>
+                  <a href={href} className="hover:text-[#22C55E] transition-colors">{s}</a>
+                </li>
+              );
+            })}
           </ul>
         </div>
 
