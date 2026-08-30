@@ -180,11 +180,29 @@ useEffect(() => {
           <h4 className="font-bold text-white text-sm uppercase tracking-wider mb-5">{t.footer.servicesTitle}</h4>
           <ul className="space-y-3 text-sm text-white/50">
             {t.footer.servicesList.map((s, idx) => {
-              const targets = ['/#portfolio', '/#portfolio', '/#how-it-works', '/#services', '/#faq'];
-              const href = targets[idx] || '/#services';
+              const categoryKeys = ['2D', '3D', 'Digital', 'Print', '2D'];
+              const catKey = categoryKeys[idx] || '2D';
+              const href = `/#portfolio?cat=${catKey}`;
+
+              const handleClick = (e) => {
+                const portfolioEl = document.getElementById('portfolio');
+                if (portfolioEl && window.location.pathname === '/') {
+                  e.preventDefault();
+                  window.history.pushState(null, '', href);
+                  window.dispatchEvent(new CustomEvent('qeero:set-portfolio-category', { detail: catKey }));
+                  portfolioEl.scrollIntoView({ behavior: 'smooth' });
+                }
+              };
+
               return (
                 <li key={s}>
-                  <a href={href} className="hover:text-[#22C55E] transition-colors">{s}</a>
+                  <a 
+                    href={href} 
+                    onClick={handleClick} 
+                    className="hover:text-[#22C55E] transition-colors cursor-pointer"
+                  >
+                    {s}
+                  </a>
                 </li>
               );
             })}

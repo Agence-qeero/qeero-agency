@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { TextEffect } from '../../components/motion-primitives/text-effect';
 import Lightbox from './Lightbox';
@@ -59,21 +60,40 @@ const PortfolioItem = ({ src, label, cat, t, i, openLightbox }) => {
 const Portfolio = () => {
   const { t } = useLanguage();
   const categories = getCategories(t);
+  const location = useLocation();
 
   const [active, setActive] = useState(t.portfolio.categories.all);
 
-  React.useEffect(() => {
-    setActive(t.portfolio.categories.all);
-  }, [t]);
-
-  const [lightboxIndex, setLightboxIndex] = useState(null);
-
-  const catMap = {
+  const catMap = React.useMemo(() => ({
     '2D': t.portfolio.categories.twoD,
     '3D': t.portfolio.categories.threeD,
     'Print': t.portfolio.categories.print,
     'Digital': t.portfolio.categories.digital
-  };
+  }), [t]);
+
+  React.useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const catParam = params.get('cat');
+    if (catParam && catMap[catParam]) {
+      setActive(catMap[catParam]);
+      setTimeout(() => {
+        document.getElementById('portfolio')?.scrollIntoView({ behavior: 'smooth' });
+      }, 50);
+    }
+  }, [location, catMap]);
+
+  React.useEffect(() => {
+    const handleCategoryEvent = (e) => {
+      const catKey = e.detail;
+      if (catKey && catMap[catKey]) {
+        setActive(catMap[catKey]);
+      }
+    };
+    window.addEventListener('qeero:set-portfolio-category', handleCategoryEvent);
+    return () => window.removeEventListener('qeero:set-portfolio-category', handleCategoryEvent);
+  }, [catMap]);
+
+  const [lightboxIndex, setLightboxIndex] = useState(null);
 
   const filtered = active === t.portfolio.categories.all 
     ? allImages 
