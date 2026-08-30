@@ -177,31 +177,36 @@ useEffect(() => {
         </div>
 
         <div>
-          <h4 className="font-bold text-white text-sm uppercase tracking-wider mb-5">{t.footer.servicesTitle}</h4>
+          <h4 className="font-bold text-white text-sm uppercase tracking-wider mb-5">
+            {t.footer.sectionsTitle || 'Sections'}
+          </h4>
           <ul className="space-y-3 text-sm text-white/50">
-            {t.footer.servicesList.map((s, idx) => {
-              const categoryKeys = ['2D', '3D', 'Digital', 'Print', '2D'];
-              const catKey = categoryKeys[idx] || '2D';
-              const href = `/#portfolio?cat=${catKey}`;
-
+            {(t.footer.sectionsList || [
+              { label: 'Portfolio', href: '/#portfolio' },
+              { label: 'Comment ça marche', href: '/#how-it-works' },
+              { label: 'Pourquoi QEERO', href: '/#comparison' },
+              { label: 'Tarifs & Offres', href: '/#services' },
+              { label: 'Avis Clients', href: '/#testimonials' },
+              { label: 'FAQ', href: '/#faq' },
+            ]).map(({ label, href }) => {
               const handleClick = (e) => {
-                const portfolioEl = document.getElementById('portfolio');
-                if (portfolioEl && window.location.pathname === '/') {
+                const targetId = href.replace('/#', '');
+                const targetEl = document.getElementById(targetId);
+                if (targetEl && window.location.pathname === '/') {
                   e.preventDefault();
+                  targetEl.scrollIntoView({ behavior: 'smooth' });
                   window.history.pushState(null, '', href);
-                  window.dispatchEvent(new CustomEvent('qeero:set-portfolio-category', { detail: catKey }));
-                  portfolioEl.scrollIntoView({ behavior: 'smooth' });
                 }
               };
 
               return (
-                <li key={s}>
+                <li key={label}>
                   <a 
                     href={href} 
                     onClick={handleClick} 
                     className="hover:text-[#22C55E] transition-colors cursor-pointer"
                   >
-                    {s}
+                    {label}
                   </a>
                 </li>
               );

@@ -9,7 +9,7 @@ const Testimonials = () => {
   const reviews = getReviews(t);
 
   return (
-  <section className="py-16 md:py-24 bg-[#F8F8F6] border-t border-black/5">
+  <section id="testimonials" className="py-16 md:py-24 bg-[#F8F8F6] border-t border-black/5">
     <div className="px-4 sm:px-6 lg:px-12 xl:px-16 2xl:px-24">
 
       <div className="text-center mb-14">

@@ -14,7 +14,7 @@ const ComparisonTable = () => {
   const rows = t.comparison?.rows || [];
 
   return (
-    <section className="py-16 md:py-24 bg-[#F8F8F6] border-t border-black/5">
+    <section id="comparison" className="py-16 md:py-24 bg-[#F8F8F6] border-t border-black/5">
       <div className="max-w-5xl xl:max-w-6xl 2xl:max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
         <div className="text-center mb-14">
           <span className="qeero-badge mb-5 block w-fit mx-auto">{t.comparison?.badge || '// Pourquoi QEERO ?'}</span>
