@@ -50,8 +50,8 @@ export const fr = {
     drag: "DRAG",
     items: [
       { label: "Branding" },
-      { label: "Poster Design" },
-      { label: "3D Render" },
+      { label: "Poster 3D" },
+      { label: "Rendu 3D" },
       { label: "Social Kit" },
       { label: "Packaging" },
     ]
