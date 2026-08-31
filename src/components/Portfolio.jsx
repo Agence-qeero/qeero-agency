@@ -6,17 +6,18 @@ import Lightbox from './Lightbox';
 import { useLanguage } from '../contexts/LanguageContext';
 
 const allImages = [
-  { src: '/asset_1.jpeg',  label: 'Branding Produit — Canette',                   cat: '2D' },
-  { src: '/asset_2.jpeg',  label: 'Affichage Digital — Miami Burger',             cat: 'Digital' },
-  { src: '/asset_3.jpeg',  label: 'Poster 3D — High-Satisfaction Burger',         cat: '3D' },
-  { src: '/asset_4.jpeg',  label: 'Motion & Contenu Digital',                     cat: 'Digital' },
-  { src: '/asset_5.jpeg',  label: 'Brochure & Dépliant Print',                    cat: 'Print' },
-  { src: '/asset_6.jpeg',  label: 'Visuel Architectural & Vectoriel',             cat: '2D' },
-  { src: '/asset_7.jpeg',  label: 'Papeterie & Document Officiel',                cat: 'Print' },
-  { src: '/asset_8.jpeg',  label: 'Direction Artistique — MD Pizza',              cat: 'Print' },
-  { src: '/asset_9.jpeg',  label: 'Publicité Digitale & Display',                 cat: 'Digital' },
-  { src: '/asset_10.jpeg', label: 'Social Media — Galerie Galet',                 cat: '2D' },
-  { src: '/jbl.jpeg',      label: 'Branding Produit — JBL',                       cat: '2D' },
+  { src: '/asset_1.jpeg',       label: 'Branding Produit — Canette',                   cat: '2D' },
+  { src: '/asset_2.jpeg',       label: 'Affichage Digital — Miami Burger',             cat: 'Digital' },
+  { src: '/asset_3.jpeg',       label: 'Poster 3D — High-Satisfaction Burger',         cat: '3D' },
+  { src: '/logo-karting.jpeg',  label: 'Logo & Identité — Karting du Périgord',        cat: '2D' },
+  { src: '/asset_4.jpeg',       label: 'Motion & Contenu Digital',                     cat: 'Digital' },
+  { src: '/asset_5.jpeg',       label: 'Brochure & Dépliant Print',                    cat: 'Print' },
+  { src: '/asset_6.jpeg',       label: 'Visuel Architectural & Vectoriel',             cat: '2D' },
+  { src: '/asset_7.jpeg',       label: 'Papeterie & Document Officiel',                cat: 'Print' },
+  { src: '/asset_8.jpeg',       label: 'Direction Artistique — MD Pizza',              cat: 'Print' },
+  { src: '/asset_9.jpeg',       label: 'Publicité Digitale & Display',                 cat: 'Digital' },
+  { src: '/asset_10.jpeg',      label: 'Social Media — Galerie Galet',                 cat: '2D' },
+  { src: '/jbl.jpeg',           label: 'Branding Produit — JBL',                       cat: '2D' },
 ];
 
 const getCategories = (t) => [
