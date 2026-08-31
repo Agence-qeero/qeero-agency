@@ -121,4 +121,12 @@
     transform: translateY(1px) scale(0.95);
     box-shadow: 0 2px 4px rgba(0,0,0,0.03);
   }
+
+  @media (max-width: 1023px), (pointer: coarse), (hover: none) {
+    .global-cursor-container,
+    .global-cursor-wrapper,
+    [data-cursor-wrapper] {
+      display: none !important;
+    }
+  }
 }

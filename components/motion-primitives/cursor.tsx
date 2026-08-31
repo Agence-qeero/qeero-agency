@@ -37,34 +37,54 @@ export function Cursor({
   const cursorX = useMotionValue(0);
   const cursorY = useMotionValue(0);
   const cursorRef = useRef<HTMLDivElement>(null);
-  const [isVisible, setIsVisible] = useState(!attachToParent);
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      cursorX.set(window.innerWidth / 2);
-      cursorY.set(window.innerHeight / 2);
-    }
-  }, []);
+    const isTouchDevice = 
+      typeof window !== 'undefined' && 
+      (('ontouchstart' in window) || (navigator.maxTouchPoints > 0) || window.innerWidth < 1024);
 
-  useEffect(() => {
-    if (!attachToParent) {
+    if (!attachToParent && !isTouchDevice) {
       document.body.style.cursor = 'none';
     } else {
       document.body.style.cursor = 'auto';
     }
 
     const updatePosition = (e: MouseEvent) => {
+      if (typeof window !== 'undefined' && (window.innerWidth < 1024 || (navigator.maxTouchPoints > 0 && 'ontouchstart' in window))) {
+        return;
+      }
       cursorX.set(e.clientX);
       cursorY.set(e.clientY);
+      if (!attachToParent) {
+        setIsVisible(true);
+      }
       onPositionChange?.(e.clientX, e.clientY);
     };
 
+    const handleMouseLeave = () => {
+      if (!attachToParent) {
+        setIsVisible(false);
+      }
+    };
+
+    const handleMouseEnter = () => {
+      if (!attachToParent && typeof window !== 'undefined' && window.innerWidth >= 1024) {
+        setIsVisible(true);
+      }
+    };
+
     document.addEventListener('mousemove', updatePosition);
+    document.addEventListener('mouseleave', handleMouseLeave);
+    document.addEventListener('mouseenter', handleMouseEnter);
 
     return () => {
+      document.body.style.cursor = 'auto';
       document.removeEventListener('mousemove', updatePosition);
+      document.removeEventListener('mouseleave', handleMouseLeave);
+      document.removeEventListener('mouseenter', handleMouseEnter);
     };
-  }, [cursorX, cursorY, onPositionChange]);
+  }, [cursorX, cursorY, onPositionChange, attachToParent]);
 
   const cursorXSpring = useSpring(cursorX, springConfig || { duration: 0 });
   const cursorYSpring = useSpring(cursorY, springConfig || { duration: 0 });
