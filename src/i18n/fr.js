@@ -291,6 +291,8 @@ export const fr = {
     title: "Votre projet,",
     titleHighlight: "notre priorité.",
     desc: "Nous suivons ce processus pour rendre la commande aussi simple et pratique que possible pour nos clients. Une fois que vous avez décidé de travailler avec nous, tout se passe directement par e-mail avec notre équipe.",
+    selectedPlan: "Formule sélectionnée :",
+    changePlan: "Modifier",
     stepsTitle: "Comment ça se passe ?",
     step1Title: "Contactez-nous",
     step1Desc: "Cliquez sur le bouton ci-dessous pour nous envoyer un e-mail pré-rempli. Partagez simplement les grandes lignes de ce dont vous avez besoin.",
@@ -298,7 +300,38 @@ export const fr = {
     step2Desc: "Notre équipe prend en charge votre demande immédiatement. Nous vous confirmerons les délais et poserons nos questions éventuelles par retour de mail.",
     step3Title: "Conception & Livrables",
     step3Desc: "Vous recevrez vos premiers designs directement par e-mail sous 48h. Les retours sont gérés en répondant simplement au fil de discussion !",
-    emailNote: "Ouvre votre application de messagerie par défaut (mailto)"
+    emailNote: "Ouvre votre application de messagerie par défaut (mailto)",
+    plans: {
+      subscription: {
+        name: "Abonnement",
+        annualSuffix: "Annuel (-15%)",
+        monthlySuffix: "Mensuel",
+        subjectAnnual: "[Qeero] Souscription - Abonnement Annuel",
+        subjectMonthly: "[Qeero] Souscription - Abonnement Mensuel",
+        bodyAnnual: "Bonjour l'équipe Qeero,\n\nJe souhaite souscrire à votre Abonnement Annuel (-15%).\n\nVoici quelques informations concernant mon entreprise :\n- Nom de l'entreprise :\n- Secteur d'activité :\n- Besoins graphiques récurrents estimés :\n- Date de démarrage souhaitée :\n\nMerci !",
+        bodyMonthly: "Bonjour l'équipe Qeero,\n\nJe souhaite souscrire à votre Abonnement Mensuel.\n\nVoici quelques informations concernant mon entreprise :\n- Nom de l'entreprise :\n- Secteur d'activité :\n- Besoins graphiques récurrents estimés :\n- Date de démarrage souhaitée :\n\nMerci !",
+      },
+      essential: {
+        name: "Offre Essentielle (À partir de 129€)",
+        subject: "[Qeero] Demande de projet - Offre Essentielle",
+        body: "Bonjour l'équipe Qeero,\n\nJe souhaite commander l'Offre Essentielle (visuel réseaux sociaux à partir de 129€).\n\nVoici les détails de mon projet :\n- Nom de mon entreprise / marque :\n- Type de visuel souhaité (post Instagram, bannière LinkedIn, etc.) :\n- Message principal / texte à intégrer :\n- Lien vers mon identité visuelle ou logo (si disponible) :\n- Date limite souhaitée :\n\nMerci !",
+      },
+      visibility: {
+        name: "Offre Visibilité (À partir de 179€)",
+        subject: "[Qeero] Demande de projet - Offre Visibilité",
+        body: "Bonjour l'équipe Qeero,\n\nJe souhaite commander l'Offre Visibilité (support de communication à partir de 179€).\n\nVoici les détails de mon projet :\n- Nom de mon entreprise / marque :\n- Support souhaité (flyer, affiche, dépliant, etc.) :\n- Format ou dimensions nécessaires :\n- Message principal / textes à intégrer :\n- Références visuelles ou logo :\n- Date limite souhaitée :\n\nMerci !",
+      },
+      premium: {
+        name: "Offre Premium (Sur devis)",
+        subject: "[Qeero] Demande de devis - Offre Premium",
+        body: "Bonjour l'équipe Qeero,\n\nJe souhaite échanger avec vous concernant l'Offre Premium (sur devis).\n\nVoici un aperçu de mon projet :\n- Nom de l'entreprise / marque :\n- Portée du projet (identité visuelle complète, pack sur mesure, etc.) :\n- Objectifs et attentes :\n- Budget estimé (facultatif) :\n\nMerci !",
+      },
+      default: {
+        name: "Projet sur mesure",
+        subject: "Demande de projet - Qeero",
+        body: "Bonjour l'équipe Qeero,\n\nJe souhaite démarrer un projet avec vous.\n\nVoici les détails de mes besoins :\n- [Décrivez votre projet ici]\n- [Lien vers vos références si nécessaire]\n\nMerci !",
+      },
+    },
   },
   founderVideo: {
     badge: "// En direct",

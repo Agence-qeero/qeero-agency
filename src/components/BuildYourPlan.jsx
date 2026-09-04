@@ -120,7 +120,7 @@ const BuildYourPlan = () => {
               ))}
             </ul>
 
-            <Link to="/order-process" className="w-full block mt-auto">
+            <Link to={`/order-process?plan=subscription&billing=${isAnnual ? 'annual' : 'monthly'}`} className="w-full block mt-auto">
               <button className="w-full py-4 px-6 rounded-full font-bold text-center bg-[#22C55E] text-white hover:bg-[#1ea951] shadow-lg shadow-green-500/20 transition-transform active:scale-95">
                 {p1.btn || 'Commencer maintenant'}
               </button>
@@ -165,7 +165,7 @@ const BuildYourPlan = () => {
               ))}
             </ul>
 
-            <Link to="/order-process" className="w-full block mt-auto">
+            <Link to="/order-process?plan=essential" className="w-full block mt-auto">
               <button className="w-full py-4 px-6 rounded-full font-bold text-center bg-[#111111] text-white hover:bg-black shadow-xl shadow-black/10 transition-transform active:scale-95">
                 {p2.btn || 'Commencer maintenant'}
               </button>
@@ -210,7 +210,7 @@ const BuildYourPlan = () => {
               ))}
             </ul>
 
-            <Link to="/order-process" className="w-full block mt-auto">
+            <Link to="/order-process?plan=visibility" className="w-full block mt-auto">
               <button className="w-full py-4 px-6 rounded-full font-bold text-center bg-[#111111] text-white hover:bg-black shadow-xl shadow-black/10 transition-transform active:scale-95">
                 {p3.btn || 'Commencer maintenant'}
               </button>
@@ -260,7 +260,7 @@ const BuildYourPlan = () => {
               ))}
             </ul>
 
-            <Link to="/order-process" className="w-full block mt-auto">
+            <Link to="/order-process?plan=premium" className="w-full block mt-auto">
               <button className="w-full py-4 px-6 rounded-full font-bold text-center bg-[#22C55E] text-white hover:bg-[#1ea951] shadow-lg shadow-green-500/20 transition-transform active:scale-95">
                 {p4.btn || 'Demander un devis'}
               </button>

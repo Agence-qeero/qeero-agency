@@ -291,6 +291,8 @@ export const en = {
     title: "Your project,",
     titleHighlight: "our priority.",
     desc: "We follow this process to make ordering as smooth and straightforward as possible for our clients. Once you decide to collaborate with us, everything is handled directly via email with our team.",
+    selectedPlan: "Selected Plan:",
+    changePlan: "Change",
     stepsTitle: "How does it work?",
     step1Title: "Contact Us",
     step1Desc: "Click the button below to send us a pre-filled email. Simply share the main outlines of what you need.",
@@ -298,7 +300,38 @@ export const en = {
     step2Desc: "Our team handles your request immediately. We will confirm turnaround times and ask any clarifying questions via email.",
     step3Title: "Design & Deliverables",
     step3Desc: "You will receive your initial designs directly by email within 48h. Feedback and revisions are managed simply by replying to the thread!",
-    emailNote: "Opens your default email client (mailto)"
+    emailNote: "Opens your default email client (mailto)",
+    plans: {
+      subscription: {
+        name: "Subscription",
+        annualSuffix: "Annual (-15%)",
+        monthlySuffix: "Monthly",
+        subjectAnnual: "[Qeero] Subscription - Annual Plan",
+        subjectMonthly: "[Qeero] Subscription - Monthly Plan",
+        bodyAnnual: "Hello Qeero Team,\n\nI would like to subscribe to the Annual Subscription (-15%).\n\nHere is information about my company:\n- Company name:\n- Industry / Sector:\n- Estimated recurring design needs:\n- Desired start date:\n\nThank you!",
+        bodyMonthly: "Hello Qeero Team,\n\nI would like to subscribe to the Monthly Subscription.\n\nHere is information about my company:\n- Company name:\n- Industry / Sector:\n- Estimated recurring design needs:\n- Desired start date:\n\nThank you!",
+      },
+      essential: {
+        name: "Essential Offer (From €129)",
+        subject: "[Qeero] Project Request - Essential Offer",
+        body: "Hello Qeero Team,\n\nI would like to order the Essential Offer (social media visual from €129).\n\nHere are the details of my project:\n- Company / Brand name:\n- Visual format needed (Instagram post, LinkedIn banner, etc.):\n- Main message / text to include:\n- Link to brand assets or logo (if available):\n- Desired delivery deadline:\n\nThank you!",
+      },
+      visibility: {
+        name: "Visibility Offer (From €179)",
+        subject: "[Qeero] Project Request - Visibility Offer",
+        body: "Hello Qeero Team,\n\nI would like to order the Visibility Offer (marketing collateral from €179).\n\nHere are the details of my project:\n- Company / Brand name:\n- Collateral needed (flyer, poster, brochure, etc.):\n- Required dimensions / format:\n- Main message / text to include:\n- Visual references or logo:\n- Desired delivery deadline:\n\nThank you!",
+      },
+      premium: {
+        name: "Premium Offer (On quote)",
+        subject: "[Qeero] Quote Request - Premium Offer",
+        body: "Hello Qeero Team,\n\nI would like to discuss the Premium Offer (on quote) with you.\n\nHere is an overview of my project:\n- Company / Brand name:\n- Project scope (complete visual identity, custom package, etc.):\n- Goals and expectations:\n- Estimated budget (optional):\n\nThank you!",
+      },
+      default: {
+        name: "Custom Project",
+        subject: "Project Inquiry - Qeero",
+        body: "Hello Qeero Team,\n\nI would like to start a project with you.\n\nHere are the details of my needs:\n- [Describe your project here]\n- [Links to visual references if applicable]\n\nThank you!",
+      },
+    },
   },
   founderVideo: {
     badge: "// In person",

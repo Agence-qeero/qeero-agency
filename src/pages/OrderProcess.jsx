@@ -1,25 +1,57 @@
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Mail, CheckCircle2, ArrowRight, ArrowLeft } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
 
 const OrderProcess = () => {
   const { language, t } = useLanguage();
+  const [searchParams] = useSearchParams();
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
   const op = t.orderProcess || {};
+  const plansData = op.plans || {};
+
+  const planKey = searchParams.get('plan') || '';
+  const billing = searchParams.get('billing') || 'annual';
+
+  let selectedPlanTitle = null;
+  let rawSubject = '';
+  let rawBody = '';
+
+  if (planKey === 'subscription' && plansData.subscription) {
+    const isAnn = billing !== 'monthly';
+    selectedPlanTitle = `${plansData.subscription.name} (${isAnn ? plansData.subscription.annualSuffix : plansData.subscription.monthlySuffix})`;
+    rawSubject = isAnn ? plansData.subscription.subjectAnnual : plansData.subscription.subjectMonthly;
+    rawBody = isAnn ? plansData.subscription.bodyAnnual : plansData.subscription.bodyMonthly;
+  } else if (planKey === 'essential' && plansData.essential) {
+    selectedPlanTitle = plansData.essential.name;
+    rawSubject = plansData.essential.subject;
+    rawBody = plansData.essential.body;
+  } else if (planKey === 'visibility' && plansData.visibility) {
+    selectedPlanTitle = plansData.visibility.name;
+    rawSubject = plansData.visibility.subject;
+    rawBody = plansData.visibility.body;
+  } else if (planKey === 'premium' && plansData.premium) {
+    selectedPlanTitle = plansData.premium.name;
+    rawSubject = plansData.premium.subject;
+    rawBody = plansData.premium.body;
+  } else {
+    const def = plansData.default || {};
+    rawSubject = def.subject || (language === 'en' ? "Project Inquiry - Qeero" : "Demande de projet - Qeero");
+    rawBody = def.body || (
+      language === 'en'
+        ? "Hello Qeero Team,\n\nI would like to start a project with you.\n\nHere are the details of my needs:\n- [Describe your project here]\n- [Links to visual references if applicable]\n\nThank you!"
+        : "Bonjour l'équipe Qeero,\n\nJe souhaite démarrer un projet avec vous.\n\nVoici les détails de mes besoins :\n- [Décrivez votre projet ici]\n- [Lien vers vos références si nécessaire]\n\nMerci !"
+    );
+  }
 
   const emailAddress = "agence@qeero.fr";
-  const emailSubject = encodeURIComponent(language === 'en' ? "Project Inquiry - Qeero" : "Demande de projet - Qeero");
-  const emailBody = encodeURIComponent(
-    language === 'en'
-      ? "Hello Qeero Team,\n\nI would like to start a project with you.\n\nHere are the details of my needs:\n- [Describe your project here]\n- [Links to visual references if applicable]\n\nThank you!"
-      : "Bonjour l'équipe Qeero,\n\nJe souhaite démarrer un projet avec vous.\n\nVoici les détails de mes besoins :\n- [Décrivez votre projet ici]\n- [Lien vers vos références si nécessaire]\n\nMerci !"
-  );
+  const emailSubject = encodeURIComponent(rawSubject);
+  const emailBody = encodeURIComponent(rawBody);
   const mailtoLink = `mailto:${emailAddress}?subject=${emailSubject}&body=${emailBody}`;
 
   return (
@@ -40,9 +72,22 @@ const OrderProcess = () => {
           <h1 className="text-4xl md:text-5xl font-extrabold text-[#111111] tracking-tight mb-6">
             {op.title || 'Votre projet,'} <span className="text-gradient-qeero">{op.titleHighlight || 'notre priorité.'}</span>
           </h1>
-          <p className="text-lg text-gray-500 mb-12 leading-relaxed">
+          <p className="text-lg text-gray-500 mb-8 leading-relaxed">
             {op.desc || 'Nous suivons ce processus pour rendre la commande aussi simple et pratique que possible pour nos clients. Une fois que vous avez décidé de travailler avec nous, tout se passe directement par e-mail avec notre équipe.'}
           </p>
+
+          {selectedPlanTitle && (
+            <div className="mb-10 inline-flex items-center gap-3 bg-white px-5 py-2.5 rounded-full border border-green-500/20 shadow-md shadow-green-500/5 text-sm">
+              <span className="w-2.5 h-2.5 rounded-full bg-[#22C55E] animate-pulse"></span>
+              <span className="text-gray-500 font-medium">
+                {op.selectedPlan || (language === 'en' ? 'Selected plan:' : 'Formule sélectionnée :')}
+              </span>
+              <span className="font-extrabold text-[#111111]">{selectedPlanTitle}</span>
+              <Link to="/#services" className="text-xs text-[#22C55E] hover:underline font-bold ml-1">
+                {op.changePlan || (language === 'en' ? 'Change' : 'Modifier')}
+              </Link>
+            </div>
+          )}
         </motion.div>
 
         <motion.div
