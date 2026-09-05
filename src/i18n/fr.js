@@ -129,17 +129,15 @@ export const fr = {
     recommendedBadge: "⭐ Recommandé",
     plan1: {
       title: "ABONNEMENT ANNUEL",
-      monthlyBtn: "Mensuel",
-      annualBtn: "Annuel",
-      discount: "-15%",
-      perMonth: "€/mois",
-      annualSavingPrefix: "soit",
-      annualSavingSuffix: "€/an",
-      tag: "Partenariat exclusif tout au long de l'année",
+      price: "399€/mois",
+      billingNote: "Engagement annuel",
+      tag: "Partenaire de design exclusif tout au long de l'année",
       features: [
-        "Partenaire de design exclusif",
-        "Requêtes illimitées toute l'année",
-        "Priorité absolue et livraison sous 48h",
+        "Jusqu'à 10 designs par mois",
+        "Partenaire de design exclusif tout au long de l'année",
+        "Priorité absolue sur vos demandes",
+        "Livraison sous 48 heures",
+        "Révisions incluses jusqu'à validation finale",
         "Support et direction artistique en continu"
       ],
       btn: "Commencer maintenant"
@@ -233,13 +231,15 @@ export const fr = {
       },
       {
         title: "ABONNEMENT ANNUEL",
-        price: "Prix sur demande",
-        turnaround: "Partenariat exclusif tout au long de l'année",
+        price: "399€/mois",
+        turnaround: "Partenaire de design exclusif tout au long de l'année",
         desc: "",
         features: [
-          'Partenaire de design exclusif',
-          'Requêtes illimitées toute l\'année',
-          'Priorité absolue et livraison sous 48h',
+          'Jusqu\'à 10 designs par mois',
+          'Partenaire de design exclusif tout au long de l\'année',
+          'Priorité absolue sur vos demandes',
+          'Livraison sous 48 heures',
+          'Révisions incluses jusqu\'à validation finale',
           'Support et direction artistique en continu'
         ],
         badge: '⭐ Recommandé'
@@ -303,12 +303,12 @@ export const fr = {
     emailNote: "Ouvre votre application de messagerie par défaut (mailto)",
     plans: {
       subscription: {
-        name: "Abonnement",
-        annualSuffix: "Annuel (-15%)",
+        name: "Abonnement Annuel (399€/mois)",
+        annualSuffix: "Annuel (399€/mois)",
         monthlySuffix: "Mensuel",
-        subjectAnnual: "[Qeero] Souscription - Abonnement Annuel",
+        subjectAnnual: "[Qeero] Souscription - Abonnement Annuel (399€/mois)",
         subjectMonthly: "[Qeero] Souscription - Abonnement Mensuel",
-        bodyAnnual: "Bonjour l'équipe Qeero,\n\nJe souhaite souscrire à votre Abonnement Annuel (-15%).\n\nVoici quelques informations concernant mon entreprise :\n- Nom de l'entreprise :\n- Secteur d'activité :\n- Besoins graphiques récurrents estimés :\n- Date de démarrage souhaitée :\n\nMerci !",
+        bodyAnnual: "Bonjour l'équipe Qeero,\n\nJe souhaite souscrire à votre Abonnement Annuel (399€/mois).\n\nVoici quelques informations concernant mon entreprise :\n- Nom de l'entreprise :\n- Secteur d'activité :\n- Besoins graphiques récurrents estimés :\n- Date de démarrage souhaitée :\n\nMerci !",
         bodyMonthly: "Bonjour l'équipe Qeero,\n\nJe souhaite souscrire à votre Abonnement Mensuel.\n\nVoici quelques informations concernant mon entreprise :\n- Nom de l'entreprise :\n- Secteur d'activité :\n- Besoins graphiques récurrents estimés :\n- Date de démarrage souhaitée :\n\nMerci !",
       },
       essential: {

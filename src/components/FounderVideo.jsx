@@ -1,38 +1,15 @@
-import React, { useRef, useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
-import { Play, Pause, Volume2, VolumeX } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 
 const FounderVideo = () => {
   const { t } = useLanguage();
-  const videoRef = useRef(null);
-  const [playing, setPlaying] = useState(false);
-  const [muted, setMuted] = useState(false);
-  const [started, setStarted] = useState(false);
-
-  const toggle = () => {
-    if (!videoRef.current) return;
-    if (playing) {
-      videoRef.current.pause();
-    } else {
-      videoRef.current.play();
-      setStarted(true);
-    }
-    setPlaying(p => !p);
-  };
-
-  const toggleMute = (e) => {
-    e.stopPropagation();
-    if (!videoRef.current) return;
-    videoRef.current.muted = !muted;
-    setMuted(m => !m);
-  };
 
   return (
     <section className="py-16 md:py-24 bg-white border-t border-black/5">
       <div className="max-w-5xl xl:max-w-6xl 2xl:max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
 
-<div className="text-center mb-10">
+        <div className="text-center mb-10">
           <span className="qeero-badge mb-5 block w-fit mx-auto">
             {t.founderVideo?.badge || '// En direct'}
           </span>
@@ -47,68 +24,25 @@ const FounderVideo = () => {
           </p>
         </div>
 
-<motion.div
+        <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
-          className="relative rounded-3xl overflow-hidden bg-[#111111] shadow-2xl cursor-pointer group"
+          className="relative rounded-3xl overflow-hidden bg-[#111111] shadow-2xl border border-black/10"
           style={{ aspectRatio: '16/9' }}
-          onClick={toggle}
         >
-          <video
-            ref={videoRef}
-            src="/videos/presentation.mp4"
-            className="w-full h-full object-cover"
-            playsInline
-            preload="metadata"
-            onPlay={() => { setPlaying(true); setStarted(true); }}
-            onPause={() => setPlaying(false)}
-            onEnded={() => { setPlaying(false); setStarted(false); }}
+          <iframe
+            src="https://www.youtube-nocookie.com/embed/Ryvja-UQIvI?rel=0&modestbranding=1"
+            title="Qeero Presentation"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowFullScreen
+            loading="lazy"
+            className="w-full h-full border-0"
           />
-
-<div
-            className={`absolute inset-0 bg-black/40 flex flex-col items-center justify-center transition-all duration-300 ${
-              playing ? 'opacity-0 pointer-events-none' : 'opacity-100 pointer-events-auto'
-            }`}
-          >
-            
-            <motion.button
-              whileHover={{ scale: 1.08 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={(e) => {
-                e.stopPropagation();
-                toggle();
-              }}
-              aria-label={playing ? 'Pause' : 'Play'}
-              className="w-20 h-20 rounded-full bg-white flex items-center justify-center shadow-2xl"
-            >
-              {playing
-                ? <Pause size={32} className="text-[#111111]" />
-                : <Play  size={32} className="text-[#111111] translate-x-0.5" />
-              }
-            </motion.button>
-
-{!started && (
-              <p className="mt-5 text-white/80 text-sm font-medium tracking-wide">
-                {t.founderVideo?.cta || 'Regarder la présentation'}
-              </p>
-            )}
-          </div>
-
-<button
-            onClick={toggleMute}
-            aria-label={muted ? 'Unmute' : 'Mute'}
-            className="absolute bottom-4 right-4 w-9 h-9 rounded-full bg-black/50 hover:bg-black/70 flex items-center justify-center text-white transition-colors z-10"
-          >
-            {muted
-              ? <VolumeX size={16} strokeWidth={1.75} />
-              : <Volume2 size={16} strokeWidth={1.75} />
-            }
-          </button>
         </motion.div>
 
-<div className="mt-6 flex items-center justify-center gap-3">
+        <div className="mt-6 flex items-center justify-center gap-3">
           <div className="flex items-center gap-0.5">
             {[...Array(5)].map((_, i) => (
               <svg key={i} width="14" height="14" viewBox="0 0 24 24" fill="#F59E0B">

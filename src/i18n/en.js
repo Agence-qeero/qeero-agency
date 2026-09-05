@@ -129,18 +129,16 @@ export const en = {
     recommendedBadge: "⭐ Recommended",
     plan1: {
       title: "ANNUAL SUBSCRIPTION",
-      monthlyBtn: "Monthly",
-      annualBtn: "Annual",
-      discount: "-15%",
-      perMonth: "/month",
-      annualSavingPrefix: "or",
-      annualSavingSuffix: "/year",
-      tag: "Exclusive partnership all year round",
+      price: "€399/month",
+      billingNote: "Billed annually",
+      tag: "Exclusive design partner all year round",
       features: [
-        "Exclusive design partner",
-        "Unlimited requests year-round",
-        "Top priority & 48h delivery",
-        "Continuous support & art direction"
+        "Up to 10 designs per month",
+        "Exclusive design partner all year round",
+        "Top priority on requests",
+        "Delivery within 48 hours",
+        "Revisions included until final approval",
+        "Ongoing support and art direction"
       ],
       btn: "Start now"
     },
@@ -233,14 +231,16 @@ export const en = {
       },
       {
         title: "ANNUAL SUBSCRIPTION",
-        price: "Price on request",
-        turnaround: "Exclusive partnership all year round",
+        price: "€399/month",
+        turnaround: "Exclusive design partner all year round",
         desc: "",
         features: [
-          'Exclusive design partner',
-          'Unlimited requests year-round',
-          'Top priority & 48h delivery',
-          'Continuous support & art direction'
+          'Up to 10 designs per month',
+          'Exclusive design partner all year round',
+          'Top priority on requests',
+          'Delivery within 48 hours',
+          'Revisions included until final approval',
+          'Ongoing support and art direction'
         ],
         badge: '⭐ Recommended'
       },
@@ -303,12 +303,12 @@ export const en = {
     emailNote: "Opens your default email client (mailto)",
     plans: {
       subscription: {
-        name: "Subscription",
-        annualSuffix: "Annual (-15%)",
+        name: "Annual Subscription (€399/month)",
+        annualSuffix: "Annual (€399/month)",
         monthlySuffix: "Monthly",
-        subjectAnnual: "[Qeero] Subscription - Annual Plan",
+        subjectAnnual: "[Qeero] Subscription - Annual Plan (€399/month)",
         subjectMonthly: "[Qeero] Subscription - Monthly Plan",
-        bodyAnnual: "Hello Qeero Team,\n\nI would like to subscribe to the Annual Subscription (-15%).\n\nHere is information about my company:\n- Company name:\n- Industry / Sector:\n- Estimated recurring design needs:\n- Desired start date:\n\nThank you!",
+        bodyAnnual: "Hello Qeero Team,\n\nI would like to subscribe to the Annual Subscription (€399/month).\n\nHere is information about my company:\n- Company name:\n- Industry / Sector:\n- Estimated recurring design needs:\n- Desired start date:\n\nThank you!",
         bodyMonthly: "Hello Qeero Team,\n\nI would like to subscribe to the Monthly Subscription.\n\nHere is information about my company:\n- Company name:\n- Industry / Sector:\n- Estimated recurring design needs:\n- Desired start date:\n\nThank you!",
       },
       essential: {

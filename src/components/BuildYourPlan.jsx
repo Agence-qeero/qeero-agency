@@ -5,24 +5,14 @@ import { Check, Zap } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import FloatingShapes from './FloatingShapes';
 
-const MONTHLY_PRICE = 299;
-const ANNUAL_DISCOUNT = 0.15;
-
 const BuildYourPlan = () => {
-  const { t } = useLanguage();
-  const [isAnnual, setIsAnnual] = useState(false);
+  const { language, t } = useLanguage();
 
   const bp = t.buildYourPlan || {};
   const p1 = bp.plan1 || {};
   const p2 = bp.plan2 || {};
   const p3 = bp.plan3 || {};
   const p4 = bp.plan4 || {};
-
-  const subMonthly = MONTHLY_PRICE;
-  const subAnnual = Math.round(MONTHLY_PRICE * (1 - ANNUAL_DISCOUNT));
-  const perMonthLabel = p1.perMonth || '€/mois';
-  const displayPrice = isAnnual ? `${subAnnual}${perMonthLabel}` : `${subMonthly}${perMonthLabel}`;
-  const annualSaving = `${p1.annualSavingPrefix || 'soit'} ${subAnnual * 12}${p1.annualSavingSuffix || '€/an'}`;
 
   return (
     <section id="services" className="relative py-16 md:py-24 bg-[#F8F8F6] border-t border-black/5 overflow-hidden">
@@ -53,65 +43,34 @@ const BuildYourPlan = () => {
               {bp.recommendedBadge || '⭐ Recommandé'}
             </div>
 
-            <h3 className="text-xl font-black tracking-tight mb-4 text-[#111111]">
+            <h3 className="text-xl font-black tracking-tight mb-6 text-[#111111]">
               {p1.title || 'ABONNEMENT ANNUEL'}
             </h3>
 
-            <div className="inline-flex items-center self-start p-1.5 bg-gray-100/90 rounded-full mb-6 border border-black/5 shadow-inner">
-              <button
-                onClick={() => setIsAnnual(false)}
-                className={`relative z-10 px-4 py-2 rounded-full text-xs font-extrabold transition-all duration-200 cursor-pointer flex items-center gap-1.5 group ${
-                  !isAnnual ? 'text-[#111111]' : 'text-gray-500 hover:text-[#22C55E]'
-                }`}
-              >
-                <motion.span whileHover={{ scale: 1.06 }} whileTap={{ scale: 0.95 }} className="transition-colors group-hover:text-[#22C55E]">
-                  {p1.monthlyBtn || 'Mensuel'}
-                </motion.span>
-                {!isAnnual && (
-                  <motion.div
-                    layoutId="build-plan-pill"
-                    className="absolute inset-0 bg-white rounded-full shadow-md -z-10 border border-black/5"
-                    transition={{ type: 'spring', stiffness: 500, damping: 35 }}
-                  />
-                )}
-              </button>
-              <button
-                onClick={() => setIsAnnual(true)}
-                className={`relative z-10 px-4 py-2 rounded-full text-xs font-extrabold transition-all duration-200 cursor-pointer flex items-center gap-1.5 group ${
-                  isAnnual ? 'text-[#111111]' : 'text-gray-500 hover:text-[#22C55E]'
-                }`}
-              >
-                <motion.span whileHover={{ scale: 1.06 }} whileTap={{ scale: 0.95 }} className="flex items-center gap-1.5 transition-colors group-hover:text-[#22C55E]">
-                  {p1.annualBtn || 'Annuel'} <span className="bg-[#E6F8ED] text-[#22C55E] text-[10px] px-2 py-0.5 rounded-full font-black shadow-sm">{p1.discount || '-15%'}</span>
-                </motion.span>
-                {isAnnual && (
-                  <motion.div
-                    layoutId="build-plan-pill"
-                    className="absolute inset-0 bg-white rounded-full shadow-md -z-10 border border-black/5"
-                    transition={{ type: 'spring', stiffness: 500, damping: 35 }}
-                  />
-                )}
-              </button>
+            <div className="mb-6">
+              <div className="text-3xl font-black tracking-tighter text-[#111111]">
+                {p1.price || (language === 'en' ? '€399/month' : '399€/mois')}
+              </div>
+              <div className="text-xs text-[#22C55E] font-semibold mt-1">
+                {p1.billingNote || (language === 'en' ? 'Billed annually' : 'Engagement annuel')}
+              </div>
             </div>
 
-<div className="mb-2">
-              <div className="text-3xl font-black tracking-tighter text-[#111111]">{displayPrice}</div>
-              {isAnnual && <div className="text-xs text-[#22C55E] font-semibold mt-1">{annualSaving}</div>}
-            </div>
-
-<div className="flex items-start gap-2 p-4 rounded-2xl mb-8 bg-[#F0FDF4] mt-4">
+            <div className="flex items-start gap-2 p-4 rounded-2xl mb-8 bg-[#F0FDF4]">
               <Zap size={16} className="shrink-0 mt-0.5 text-[#22C55E]" fill="currentColor" />
               <span className="text-sm font-medium leading-snug text-[#22C55E]">
-                {p1.tag || "Partenariat exclusif tout au long de l'année"}
+                {p1.tag || (language === 'en' ? "Exclusive design partner all year round" : "Partenaire de design exclusif tout au long de l'année")}
               </span>
             </div>
 
-<ul className="space-y-4 mb-10 flex-grow">
+            <ul className="space-y-4 mb-10 flex-grow">
               {(p1.features || [
-                'Partenaire de design exclusif',
-                "Requêtes illimitées toute l'année",
-                'Priorité absolue et livraison sous 48h',
-                'Support et direction artistique en continu',
+                'Up to 10 designs per month',
+                'Exclusive design partner all year round',
+                'Top priority on requests',
+                'Delivery within 48 hours',
+                'Revisions included until final approval',
+                'Ongoing support and art direction'
               ]).map((f, i) => (
                 <li key={i} className="flex items-start gap-3 text-sm">
                   <Check size={18} className="text-[#22C55E] shrink-0 mt-0.5" strokeWidth={3} />
@@ -120,14 +79,14 @@ const BuildYourPlan = () => {
               ))}
             </ul>
 
-            <Link to={`/order-process?plan=subscription&billing=${isAnnual ? 'annual' : 'monthly'}`} className="w-full block mt-auto">
+            <Link to="/order-process?plan=subscription" className="w-full block mt-auto">
               <button className="w-full py-4 px-6 rounded-full font-bold text-center bg-[#22C55E] text-white hover:bg-[#1ea951] shadow-lg shadow-green-500/20 transition-transform active:scale-95">
-                {p1.btn || 'Commencer maintenant'}
+                {p1.btn || (language === 'en' ? 'Start now' : 'Commencer maintenant')}
               </button>
             </Link>
           </motion.div>
 
-<motion.div
+          <motion.div
             initial={{ y: 30, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             viewport={{ once: true }}
