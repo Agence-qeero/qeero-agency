@@ -18,10 +18,16 @@ const BuildYourPlan = () => {
   const p3 = bp.plan3 || {};
   const p4 = bp.plan4 || {};
 
-  const perMonthLabel = p1.perMonth || (language === 'en' ? '/month' : '€/mois');
-  const displayPrice = isAnnual ? `${ANNUAL_PRICE}${perMonthLabel}` : `${MONTHLY_PRICE}${perMonthLabel}`;
-  const annualSaving = `${p1.annualSavingPrefix || (language === 'en' ? 'or' : 'soit')} ${ANNUAL_PRICE * 12}${p1.annualSavingSuffix || (language === 'en' ? '/year' : '€/an')}`;
-  const cardTitle = isAnnual ? (p1.annualTitle || 'ABONNEMENT ANNUEL') : (p1.monthlyTitle || 'ABONNEMENT MENSUEL');
+  const isEn = language === 'en';
+  const currentPrice = isAnnual ? ANNUAL_PRICE : MONTHLY_PRICE;
+  const displayPrice = isEn ? `€${currentPrice}/month` : `${currentPrice}€/mois`;
+  const annualTotal = ANNUAL_PRICE * 12;
+  const annualSaving = isEn
+    ? `or €${annualTotal.toLocaleString('en-US')}/year`
+    : `soit ${annualTotal.toLocaleString('fr-FR')}€/an`;
+  const cardTitle = isAnnual
+    ? (p1.annualTitle || (isEn ? 'ANNUAL SUBSCRIPTION' : 'ABONNEMENT ANNUEL'))
+    : (p1.monthlyTitle || (isEn ? 'MONTHLY SUBSCRIPTION' : 'ABONNEMENT MENSUEL'));
 
   return (
     <section id="services" className="relative py-16 md:py-24 bg-[#F8F8F6] border-t border-black/5 overflow-hidden">

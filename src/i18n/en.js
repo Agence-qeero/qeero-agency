@@ -135,7 +135,7 @@ export const en = {
       annualBtn: "Annual",
       discount: "-15%",
       perMonth: "/month",
-      annualSavingPrefix: "or",
+      annualSavingPrefix: "or €",
       annualSavingSuffix: "/year",
       noCommitment: "No commitment • Cancel anytime",
       tag: "Exclusive design partner all year round",
