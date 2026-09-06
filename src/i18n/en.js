@@ -128,9 +128,16 @@ export const en = {
   buildYourPlan: {
     recommendedBadge: "⭐ Recommended",
     plan1: {
-      title: "ANNUAL SUBSCRIPTION",
-      price: "€399/month",
-      billingNote: "Billed annually",
+      title: "SUBSCRIPTION",
+      annualTitle: "ANNUAL SUBSCRIPTION",
+      monthlyTitle: "MONTHLY SUBSCRIPTION",
+      monthlyBtn: "Monthly",
+      annualBtn: "Annual",
+      discount: "-15%",
+      perMonth: "/month",
+      annualSavingPrefix: "or",
+      annualSavingSuffix: "/year",
+      noCommitment: "No commitment • Cancel anytime",
       tag: "Exclusive design partner all year round",
       features: [
         "Up to 10 designs per month",
@@ -303,13 +310,15 @@ export const en = {
     emailNote: "Opens your default email client (mailto)",
     plans: {
       subscription: {
-        name: "Annual Subscription (€399/month)",
+        name: "Subscription",
+        nameAnnual: "Annual Subscription (€399/month - 15% off)",
+        nameMonthly: "Monthly Subscription (€459/month)",
         annualSuffix: "Annual (€399/month)",
-        monthlySuffix: "Monthly",
+        monthlySuffix: "Monthly (€459/month)",
         subjectAnnual: "[Qeero] Subscription - Annual Plan (€399/month)",
-        subjectMonthly: "[Qeero] Subscription - Monthly Plan",
-        bodyAnnual: "Hello Qeero Team,\n\nI would like to subscribe to the Annual Subscription (€399/month).\n\nHere is information about my company:\n- Company name:\n- Industry / Sector:\n- Estimated recurring design needs:\n- Desired start date:\n\nThank you!",
-        bodyMonthly: "Hello Qeero Team,\n\nI would like to subscribe to the Monthly Subscription.\n\nHere is information about my company:\n- Company name:\n- Industry / Sector:\n- Estimated recurring design needs:\n- Desired start date:\n\nThank you!",
+        subjectMonthly: "[Qeero] Subscription - Monthly Plan (€459/month)",
+        bodyAnnual: "Hello Qeero Team,\n\nI would like to subscribe to the Annual Subscription (€399/month - 15% off).\n\nHere is information about my company:\n- Company name:\n- Industry / Sector:\n- Estimated recurring design needs:\n- Desired start date:\n\nThank you!",
+        bodyMonthly: "Hello Qeero Team,\n\nI would like to subscribe to the Monthly Subscription (€459/month - No long-term commitment).\n\nHere is information about my company:\n- Company name:\n- Industry / Sector:\n- Estimated recurring design needs:\n- Desired start date:\n\nThank you!",
       },
       essential: {
         name: "Essential Offer (From €129)",

@@ -5,8 +5,12 @@ import { Check, Zap } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import FloatingShapes from './FloatingShapes';
 
+const ANNUAL_PRICE = 399;
+const MONTHLY_PRICE = Math.round(ANNUAL_PRICE * 1.15); // 459€ (399€ + 15%)
+
 const BuildYourPlan = () => {
   const { language, t } = useLanguage();
+  const [isAnnual, setIsAnnual] = useState(true);
 
   const bp = t.buildYourPlan || {};
   const p1 = bp.plan1 || {};
@@ -14,13 +18,18 @@ const BuildYourPlan = () => {
   const p3 = bp.plan3 || {};
   const p4 = bp.plan4 || {};
 
+  const perMonthLabel = p1.perMonth || (language === 'en' ? '/month' : '€/mois');
+  const displayPrice = isAnnual ? `${ANNUAL_PRICE}${perMonthLabel}` : `${MONTHLY_PRICE}${perMonthLabel}`;
+  const annualSaving = `${p1.annualSavingPrefix || (language === 'en' ? 'or' : 'soit')} ${ANNUAL_PRICE * 12}${p1.annualSavingSuffix || (language === 'en' ? '/year' : '€/an')}`;
+  const cardTitle = isAnnual ? (p1.annualTitle || 'ABONNEMENT ANNUEL') : (p1.monthlyTitle || 'ABONNEMENT MENSUEL');
+
   return (
     <section id="services" className="relative py-16 md:py-24 bg-[#F8F8F6] border-t border-black/5 overflow-hidden">
       <FloatingShapes />
 
       <div className="relative z-10 px-4 sm:px-6 lg:px-12 xl:px-16 2xl:px-24">
 
-<div className="text-center mb-14">
+        <div className="text-center mb-14">
           <span className="qeero-badge mb-5 block w-fit mx-auto">{t.services?.badge || 'Tarifs'}</span>
           <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-[#111111] mb-3">
             {t.services.title}
@@ -30,9 +39,9 @@ const BuildYourPlan = () => {
           </p>
         </div>
 
-<div className="grid md:grid-cols-2 xl:grid-cols-4 gap-6 items-stretch">
+        <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-6 items-stretch">
 
-<motion.div
+          <motion.div
             initial={{ y: 30, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             viewport={{ once: true }}
@@ -43,20 +52,57 @@ const BuildYourPlan = () => {
               {bp.recommendedBadge || '⭐ Recommandé'}
             </div>
 
-            <h3 className="text-xl font-black tracking-tight mb-6 text-[#111111]">
-              {p1.title || 'ABONNEMENT ANNUEL'}
+            <h3 className="text-xl font-black tracking-tight mb-4 text-[#111111]">
+              {cardTitle}
             </h3>
 
-            <div className="mb-6">
-              <div className="text-3xl font-black tracking-tighter text-[#111111]">
-                {p1.price || (language === 'en' ? '€399/month' : '399€/mois')}
-              </div>
-              <div className="text-xs text-[#22C55E] font-semibold mt-1">
-                {p1.billingNote || (language === 'en' ? 'Billed annually' : 'Engagement annuel')}
-              </div>
+            <div className="inline-flex items-center self-start p-1.5 bg-gray-100/90 rounded-full mb-6 border border-black/5 shadow-inner">
+              <button
+                onClick={() => setIsAnnual(false)}
+                className={`relative z-10 px-4 py-2 rounded-full text-xs font-extrabold transition-all duration-200 cursor-pointer flex items-center gap-1.5 group ${
+                  !isAnnual ? 'text-[#111111]' : 'text-gray-500 hover:text-[#22C55E]'
+                }`}
+              >
+                <motion.span whileHover={{ scale: 1.06 }} whileTap={{ scale: 0.95 }} className="transition-colors group-hover:text-[#22C55E]">
+                  {p1.monthlyBtn || (language === 'en' ? 'Monthly' : 'Mensuel')}
+                </motion.span>
+                {!isAnnual && (
+                  <motion.div
+                    layoutId="build-plan-pill"
+                    className="absolute inset-0 bg-white rounded-full shadow-md -z-10 border border-black/5"
+                    transition={{ type: 'spring', stiffness: 500, damping: 35 }}
+                  />
+                )}
+              </button>
+              <button
+                onClick={() => setIsAnnual(true)}
+                className={`relative z-10 px-4 py-2 rounded-full text-xs font-extrabold transition-all duration-200 cursor-pointer flex items-center gap-1.5 group ${
+                  isAnnual ? 'text-[#111111]' : 'text-gray-500 hover:text-[#22C55E]'
+                }`}
+              >
+                <motion.span whileHover={{ scale: 1.06 }} whileTap={{ scale: 0.95 }} className="flex items-center gap-1.5 transition-colors group-hover:text-[#22C55E]">
+                  {p1.annualBtn || (language === 'en' ? 'Annual' : 'Annuel')} <span className="bg-[#E6F8ED] text-[#22C55E] text-[10px] px-2 py-0.5 rounded-full font-black shadow-sm">{p1.discount || '-15%'}</span>
+                </motion.span>
+                {isAnnual && (
+                  <motion.div
+                    layoutId="build-plan-pill"
+                    className="absolute inset-0 bg-white rounded-full shadow-md -z-10 border border-black/5"
+                    transition={{ type: 'spring', stiffness: 500, damping: 35 }}
+                  />
+                )}
+              </button>
             </div>
 
-            <div className="flex items-start gap-2 p-4 rounded-2xl mb-8 bg-[#F0FDF4]">
+            <div className="mb-2">
+              <div className="text-3xl font-black tracking-tighter text-[#111111]">{displayPrice}</div>
+              {isAnnual ? (
+                <div className="text-xs text-[#22C55E] font-semibold mt-1">{annualSaving}</div>
+              ) : (
+                <div className="text-xs text-gray-400 font-medium mt-1">{p1.noCommitment || (language === 'en' ? 'No commitment • Cancel anytime' : 'Sans engagement')}</div>
+              )}
+            </div>
+
+            <div className="flex items-start gap-2 p-4 rounded-2xl mb-8 bg-[#F0FDF4] mt-4">
               <Zap size={16} className="shrink-0 mt-0.5 text-[#22C55E]" fill="currentColor" />
               <span className="text-sm font-medium leading-snug text-[#22C55E]">
                 {p1.tag || (language === 'en' ? "Exclusive design partner all year round" : "Partenaire de design exclusif tout au long de l'année")}
@@ -79,7 +125,7 @@ const BuildYourPlan = () => {
               ))}
             </ul>
 
-            <Link to="/order-process?plan=subscription" className="w-full block mt-auto">
+            <Link to={`/order-process?plan=subscription&billing=${isAnnual ? 'annual' : 'monthly'}`} className="w-full block mt-auto">
               <button className="w-full py-4 px-6 rounded-full font-bold text-center bg-[#22C55E] text-white hover:bg-[#1ea951] shadow-lg shadow-green-500/20 transition-transform active:scale-95">
                 {p1.btn || (language === 'en' ? 'Start now' : 'Commencer maintenant')}
               </button>

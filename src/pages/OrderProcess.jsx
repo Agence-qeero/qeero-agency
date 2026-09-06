@@ -24,7 +24,9 @@ const OrderProcess = () => {
 
   if (planKey === 'subscription' && plansData.subscription) {
     const isAnn = billing !== 'monthly';
-    selectedPlanTitle = `${plansData.subscription.name} (${isAnn ? plansData.subscription.annualSuffix : plansData.subscription.monthlySuffix})`;
+    selectedPlanTitle = isAnn
+      ? (plansData.subscription.nameAnnual || `${plansData.subscription.name} (${plansData.subscription.annualSuffix})`)
+      : (plansData.subscription.nameMonthly || `${plansData.subscription.name} (${plansData.subscription.monthlySuffix})`);
     rawSubject = isAnn ? plansData.subscription.subjectAnnual : plansData.subscription.subjectMonthly;
     rawBody = isAnn ? plansData.subscription.bodyAnnual : plansData.subscription.bodyMonthly;
   } else if (planKey === 'essential' && plansData.essential) {
