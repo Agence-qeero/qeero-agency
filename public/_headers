@@ -1,0 +1,25 @@
+/*
+  # Prevent clickjacking
+  X-Frame-Options: DENY
+
+  # Prevent MIME sniffing
+  X-Content-Type-Options: nosniff
+
+  # Control referrer information sent with requests
+  Referrer-Policy: strict-origin-when-cross-origin
+
+  # Force HTTPS for 1 year (includeSubDomains)
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+
+  # Content Security Policy
+  # - self: all same-origin assets
+  # - fonts.googleapis.com / fonts.gstatic.com: Google Fonts
+  # - unsafe-inline for styles: required by Tailwind CSS inline styles
+  # - data: for images used in CSS/JS
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob:; connect-src 'self'; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'
+
+  # Disable browser features not used by the site
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=(), fullscreen=(self)
+
+  # Prevent cross-site scripting via content sniffing
+  X-XSS-Protection: 1; mode=block

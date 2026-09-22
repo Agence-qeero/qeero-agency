@@ -1,0 +1,43 @@
+# robots.txt — qeero.fr
+# https://www.robotstxt.org/robotstxt.html
+
+# ─── Legitimate crawlers ──────────────────────────────────────────────────────
+User-agent: Googlebot
+Allow: /
+Disallow: /api/
+
+User-agent: Bingbot
+Allow: /
+Disallow: /api/
+
+# ─── All other bots ───────────────────────────────────────────────────────────
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /.env
+Disallow: /.env.local
+Disallow: /.env.production
+Disallow: /.env.development
+Disallow: /public/.env
+Disallow: /v2/
+Disallow: /@fs/
+Disallow: /_astro/
+
+# ─── Known malicious / aggressive scanners ───────────────────────────────────
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+User-agent: PetalBot
+Disallow: /
+
+# ─── Sitemap ─────────────────────────────────────────────────────────────────
+Sitemap: https://www.qeero.fr/sitemap.xml

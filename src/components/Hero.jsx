@@ -20,7 +20,7 @@ const Hero = () => {
           src="/logo.jpeg"
           alt=""
           aria-hidden="true"
-          className="w-[700px] max-w-none object-contain select-none"
+          className="w-[90vw] sm:w-[600px] md:w-[700px] object-contain select-none"
           style={{ opacity: 0.04, filter: 'grayscale(100%)' }}
         />
       </div>
