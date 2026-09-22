@@ -238,7 +238,7 @@ export const en = {
       },
       {
         title: "ANNUAL SUBSCRIPTION",
-        price: "€399/month",
+        price: "€458/month",
         turnaround: "Exclusive design partner all year round",
         desc: "",
         features: [
@@ -311,14 +311,14 @@ export const en = {
     plans: {
       subscription: {
         name: "Subscription",
-        nameAnnual: "Annual Subscription (€399/month - 15% off)",
-        nameMonthly: "Monthly Subscription (€459/month)",
-        annualSuffix: "Annual (€399/month)",
-        monthlySuffix: "Monthly (€459/month)",
-        subjectAnnual: "[Qeero] Subscription - Annual Plan (€399/month)",
-        subjectMonthly: "[Qeero] Subscription - Monthly Plan (€459/month)",
-        bodyAnnual: "Hello Qeero Team,\n\nI would like to subscribe to the Annual Subscription (€399/month - 15% off).\n\nHere is information about my company:\n- Company name:\n- Industry / Sector:\n- Estimated recurring design needs:\n- Desired start date:\n\nThank you!",
-        bodyMonthly: "Hello Qeero Team,\n\nI would like to subscribe to the Monthly Subscription (€459/month - No long-term commitment).\n\nHere is information about my company:\n- Company name:\n- Industry / Sector:\n- Estimated recurring design needs:\n- Desired start date:\n\nThank you!",
+        nameAnnual: "Annual Subscription (€458/month - 15% off)",
+        nameMonthly: "Monthly Subscription (€539/month)",
+        annualSuffix: "Annual (€458/month)",
+        monthlySuffix: "Monthly (€539/month)",
+        subjectAnnual: "[Qeero] Subscription - Annual Plan (€458/month)",
+        subjectMonthly: "[Qeero] Subscription - Monthly Plan (€539/month)",
+        bodyAnnual: "Hello Qeero Team,\n\nI would like to subscribe to the Annual Subscription (€458/month - 15% off).\n\nHere is information about my company:\n- Company name:\n- Industry / Sector:\n- Estimated recurring design needs:\n- Desired start date:\n\nThank you!",
+        bodyMonthly: "Hello Qeero Team,\n\nI would like to subscribe to the Monthly Subscription (€539/month - No long-term commitment).\n\nHere is information about my company:\n- Company name:\n- Industry / Sector:\n- Estimated recurring design needs:\n- Desired start date:\n\nThank you!",
       },
       essential: {
         name: "Essential Offer (From €129)",

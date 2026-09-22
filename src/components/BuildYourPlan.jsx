@@ -5,8 +5,8 @@ import { Check, Zap } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import FloatingShapes from './FloatingShapes';
 
-const ANNUAL_PRICE = 399;
-const MONTHLY_PRICE = Math.round(ANNUAL_PRICE * 1.15); // 459€ (399€ + 15%)
+const MONTHLY_PRICE = 539;
+const ANNUAL_PRICE = 458; // 539€ with 15% discount (539 * 0.85 = 458.15€)
 
 const BuildYourPlan = () => {
   const { language, t } = useLanguage();

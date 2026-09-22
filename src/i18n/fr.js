@@ -238,7 +238,7 @@ export const fr = {
       },
       {
         title: "ABONNEMENT ANNUEL",
-        price: "399€/mois",
+        price: "458€/mois",
         turnaround: "Partenaire de design exclusif tout au long de l'année",
         desc: "",
         features: [
@@ -311,14 +311,14 @@ export const fr = {
     plans: {
       subscription: {
         name: "Abonnement",
-        nameAnnual: "Abonnement Annuel (399€/mois - Réduction 15%)",
-        nameMonthly: "Abonnement Mensuel (459€/mois)",
-        annualSuffix: "Annuel (399€/mois)",
-        monthlySuffix: "Mensuel (459€/mois)",
-        subjectAnnual: "[Qeero] Souscription - Abonnement Annuel (399€/mois)",
-        subjectMonthly: "[Qeero] Souscription - Abonnement Mensuel (459€/mois)",
-        bodyAnnual: "Bonjour l'équipe Qeero,\n\nJe souhaite souscrire à votre Abonnement Annuel (399€/mois - Réduction 15%).\n\nVoici quelques informations concernant mon entreprise :\n- Nom de l'entreprise :\n- Secteur d'activité :\n- Besoins graphiques récurrents estimés :\n- Date de démarrage souhaitée :\n\nMerci !",
-        bodyMonthly: "Bonjour l'équipe Qeero,\n\nJe souhaite souscrire à votre Abonnement Mensuel (459€/mois - Sans engagement).\n\nVoici quelques informations concernant mon entreprise :\n- Nom de l'entreprise :\n- Secteur d'activité :\n- Besoins graphiques récurrents estimés :\n- Date de démarrage souhaitée :\n\nMerci !",
+        nameAnnual: "Abonnement Annuel (458€/mois - Réduction 15%)",
+        nameMonthly: "Abonnement Mensuel (539€/mois)",
+        annualSuffix: "Annuel (458€/mois)",
+        monthlySuffix: "Mensuel (539€/mois)",
+        subjectAnnual: "[Qeero] Souscription - Abonnement Annuel (458€/mois)",
+        subjectMonthly: "[Qeero] Souscription - Abonnement Mensuel (539€/mois)",
+        bodyAnnual: "Bonjour l'équipe Qeero,\n\nJe souhaite souscrire à votre Abonnement Annuel (458€/mois - Réduction 15%).\n\nVoici quelques informations concernant mon entreprise :\n- Nom de l'entreprise :\n- Secteur d'activité :\n- Besoins graphiques récurrents estimés :\n- Date de démarrage souhaitée :\n\nMerci !",
+        bodyMonthly: "Bonjour l'équipe Qeero,\n\nJe souhaite souscrire à votre Abonnement Mensuel (539€/mois - Sans engagement).\n\nVoici quelques informations concernant mon entreprise :\n- Nom de l'entreprise :\n- Secteur d'activité :\n- Besoins graphiques récurrents estimés :\n- Date de démarrage souhaitée :\n\nMerci !",
       },
       essential: {
         name: "Offre Essentielle (À partir de 129€)",
