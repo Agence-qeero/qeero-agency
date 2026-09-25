@@ -1,10 +1,12 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "qeero-agency",
+  "main": "./worker.js",
   "compatibility_date": "2024-09-23",
   "assets": {
     "directory": "./dist",
-    "not_found_handling": "single-page-application"
+    "not_found_handling": "single-page-application",
+    "binding": "ASSETS"
   },
   "routes": [
     { "pattern": "qeero.fr", "custom_domain": true },
