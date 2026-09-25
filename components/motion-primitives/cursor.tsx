@@ -128,7 +128,7 @@ export function Cursor({
   return (
     <motion.div
       ref={cursorRef}
-      className={cn('pointer-events-none fixed left-0 top-0 z-50', className)}
+      className={cn('pointer-events-none fixed left-0 top-0 z-[9999]', className)}
       style={{
         x: cursorXSpring,
         y: cursorYSpring,
