@@ -1,17 +1,33 @@
 import React, { useState } from 'react';
-import { X, Send, CheckCircle } from 'lucide-react';
+import { X, Send, CheckCircle, AlertCircle, Loader2 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../contexts/LanguageContext';
 
 const ContactModal = ({ onClose }) => {
   const { t } = useLanguage();
   const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState(null);
   const [form, setForm] = useState({ name: '', email: '', service: '', message: '' });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    
-    setSent(true);
+    setSending(true);
+    setError(null);
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      });
+      const data = await res.json();
+      if (!res.ok || !data.ok) throw new Error(data.error || 'Erreur serveur');
+      setSent(true);
+    } catch (err) {
+      setError(err.message || 'Une erreur est survenue, veuillez réessayer.');
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -117,12 +133,24 @@ const ContactModal = ({ onClose }) => {
                     />
                   </div>
 
+
+                  {error && (
+                    <div className="flex items-center gap-2 text-red-600 bg-red-50 border border-red-200 rounded-xl px-4 py-3 text-sm">
+                      <AlertCircle size={16} className="shrink-0" />
+                      <span>{error}</span>
+                    </div>
+                  )}
+
                   <button
                     type="submit"
-                    className="w-full btn-qeero py-3.5 text-sm flex items-center justify-center gap-2 rounded-2xl"
+                    disabled={sending}
+                    className="w-full btn-qeero py-3.5 text-sm flex items-center justify-center gap-2 rounded-2xl disabled:opacity-60 disabled:cursor-not-allowed"
                   >
-                    <Send size={16} />
-                    {t.contactModal.submitBtn}
+                    {sending ? (
+                      <><Loader2 size={16} className="animate-spin" /> Envoi en cours…</>
+                    ) : (
+                      <><Send size={16} /> {t.contactModal.submitBtn}</>
+                    )}
                   </button>
                 </form>
               </>
