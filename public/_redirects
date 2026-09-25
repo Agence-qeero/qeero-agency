@@ -1,17 +1,3 @@
-# ─── Block sensitive path probes (bots / scanners) ──────────────────────────
-/.env                   /404    404
-/.env.local             /404    404
-/.env.production        /404    404
-/.env.development       /404    404
-/.env.example           /404    404
-/public/.env            /404    404
-/@fs/.env               /404    404
-/@fs/*                  /404    404
-/v2/.env                /404    404
-/v2/*                   /404    404
-/api/env                /404    404
-/_astro/*               /404    404
-
 # ─── Existing redirects ───────────────────────────────────────────────────────
 /page https://www.qeero.fr 301
 /page-3 https://www.qeero.fr 301
