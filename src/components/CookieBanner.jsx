@@ -18,6 +18,7 @@ const CookieBanner = () => {
 
   const accept = () => {
     localStorage.setItem('qeero_cookies', 'accepted');
+    window.dispatchEvent(new Event('qeero:cookies-accepted'));
     setVisible(false);
   };
 
