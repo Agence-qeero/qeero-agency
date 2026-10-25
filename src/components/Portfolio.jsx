@@ -18,12 +18,12 @@ const allImages = [
   { src: '/asset_9.jpeg',       label: 'Publicité Digitale & Display',                 cat: 'Digital' },
   { src: '/asset_10.jpeg',      label: 'Social Media — Galerie Galet',                 cat: '2D' },
   { src: '/jbl.jpeg',           label: 'Branding Produit — JBL',                       cat: '2D' },
-  { src: '/asset_11.jpeg',      label: 'Design Créatif 2D',                            cat: '2D' },
-  { src: '/asset_12.jpeg',      label: 'Design Créatif 2D',                            cat: '2D' },
-  { src: '/asset_13.jpeg',      label: 'Design Créatif 2D',                            cat: '2D' },
-  { src: '/asset_14.jpeg',      label: 'Design Créatif 2D',                            cat: '2D' },
-  { src: '/asset_15.jpeg',      label: 'Design Créatif 2D',                            cat: '2D' },
-  { src: '/asset_16.jpeg',      label: 'Design Créatif 2D',                            cat: '2D' },
+  { src: '/asset_11.jpeg',      label: 'Campagne Visuelle — Bloon Paris',              cat: '2D' },
+  { src: '/asset_12.jpeg',      label: 'Visuel Commercial — Négotaux',                 cat: '2D' },
+  { src: '/asset_13.jpeg',      label: 'Affiche Sportive — Tropical Padel',            cat: '2D' },
+  { src: '/asset_14.jpeg',      label: 'Affiche Immobilière — La Maison',              cat: '2D' },
+  { src: '/asset_15.jpeg',      label: 'Rendu 3D — Tropical Padel',                    cat: '3D' },
+  { src: '/asset_16.jpeg',      label: 'Plaquette Immobilière — Luxe Dordogne',        cat: '2D' },
 ];
 
 const getCategories = (t) => [
