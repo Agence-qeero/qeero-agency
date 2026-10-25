@@ -1,33 +1,51 @@
-import React from 'react';
-import { useLanguage } from '../contexts/LanguageContext';
+import React, { useMemo } from 'react';
 import { motion } from 'framer-motion';
 
-const ShowcaseTicker = () => {
-  const { t } = useLanguage();
+const ALL_ITEMS = [
+  { title: 'Branding Produit — Canette', img: '/asset_1.jpeg' },
+  { title: 'Affichage Digital — Miami Burger', img: '/asset_2.jpeg' },
+  { title: 'Poster 3D — Burger', img: '/asset_3.jpeg' },
+  { title: 'Affiche Karting du Périgord', img: '/karting-du-perigord.jpeg' },
+  { title: 'Motion & Digital', img: '/asset_4.jpeg' },
+  { title: 'Brochure Print', img: '/asset_5.jpeg' },
+  { title: 'Design Vectoriel', img: '/asset_6.jpeg' },
+  { title: 'Papeterie Officielle', img: '/asset_7.jpeg' },
+  { title: 'Moitié de Pizza — MD Pizza', img: '/asset_8.jpeg' },
+  { title: 'Display Ads', img: '/asset_9.jpeg' },
+  { title: 'Social Media Galet', img: '/asset_10.jpeg' },
+  { title: 'Branding Produit — JBL', img: '/jbl.jpeg' },
+  { title: 'Bloon Paris', img: '/asset_11.jpeg' },
+  { title: 'Négotaux', img: '/asset_12.jpeg' },
+  { title: 'Tropical Padel', img: '/asset_13.jpeg' },
+  { title: 'Immobilier La Maison', img: '/asset_14.jpeg' },
+  { title: 'Rendu 3D Tropical Padel', img: '/asset_15.jpeg' },
+  { title: 'Luxe Dordogne', img: '/asset_16.jpeg' },
+];
 
-  const items = [
-    { title: t.ticker.item1, img: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=800&auto=format&fit=crop" },
-    { title: t.ticker.item2, img: "https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?q=80&w=800&auto=format&fit=crop" },
-    { title: t.ticker.item3, img: "https://images.unsplash.com/photo-1600132806370-bf17e65e942f?q=80&w=800&auto=format&fit=crop" },
-    { title: t.ticker.item4, img: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=800&auto=format&fit=crop" },
-    { title: t.ticker.item1, img: '/asset_14.jpeg' },
-    { title: t.ticker.item2, img: '/asset_15.jpeg' },
-  ];
+function shuffleArray(arr) {
+  const result = [...arr];
+  for (let i = result.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [result[i], result[j]] = [result[j], result[i]];
+  }
+  return result;
+}
+
+const ShowcaseTicker = () => {
+  const items = useMemo(() => shuffleArray(ALL_ITEMS), []);
 
   return (
     <section id="portfolio" className="py-10 bg-[#0a0a0a] overflow-hidden border-y border-[var(--color-q-border)] relative">
-      
       <div className="flex gap-6 overflow-hidden">
         <motion.div 
           className="flex gap-6 shrink-0"
-          animate={{ x: [0, -1848] }}
+          animate={{ x: [0, -5616] }}
           transition={{ 
             ease: "linear", 
-            duration: 30, 
+            duration: 60, 
             repeat: Infinity 
           }}
         >
-          {/* First set */}
           {items.map((item, index) => (
             <div key={index} className="relative w-72 h-48 md:w-96 md:h-64 rounded-2xl overflow-hidden shrink-0 group">
               <img src={item.img} alt={item.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
@@ -36,7 +54,6 @@ const ShowcaseTicker = () => {
               </div>
             </div>
           ))}
-          {/* Duplicate set — makes the loop seamless */}
           {items.map((item, index) => (
             <div key={`dup-${index}`} className="relative w-72 h-48 md:w-96 md:h-64 rounded-2xl overflow-hidden shrink-0 group">
               <img src={item.img} alt={item.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
