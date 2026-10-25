@@ -18,6 +18,12 @@ const allImages = [
   { src: '/asset_9.jpeg',       label: 'Publicité Digitale & Display',                 cat: 'Digital' },
   { src: '/asset_10.jpeg',      label: 'Social Media — Galerie Galet',                 cat: '2D' },
   { src: '/jbl.jpeg',           label: 'Branding Produit — JBL',                       cat: '2D' },
+  { src: '/asset_11.jpeg',      label: 'Design Créatif 2D',                            cat: '2D' },
+  { src: '/asset_12.jpeg',      label: 'Design Créatif 2D',                            cat: '2D' },
+  { src: '/asset_13.jpeg',      label: 'Design Créatif 2D',                            cat: '2D' },
+  { src: '/asset_14.jpeg',      label: 'Design Créatif 2D',                            cat: '2D' },
+  { src: '/asset_15.jpeg',      label: 'Design Créatif 2D',                            cat: '2D' },
+  { src: '/asset_16.jpeg',      label: 'Design Créatif 2D',                            cat: '2D' },
 ];
 
 const getCategories = (t) => [
@@ -43,8 +49,11 @@ const PortfolioItem = ({ src, label, cat, t, i, openLightbox }) => {
         <img
           src={src}
           alt={label}
+          loading="lazy"
+          decoding="async"
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
         />
+
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
           <span className="bg-white/95 backdrop-blur-sm text-[#111111] text-xs font-bold px-3 py-1.5 rounded-full shadow-md">
             {label}

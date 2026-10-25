@@ -27,6 +27,7 @@ const CookieBanner = () => {
     setVisible(false);
   };
 
+
   return (
     <AnimatePresence>
       {visible && (

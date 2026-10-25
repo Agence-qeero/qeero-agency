@@ -9,10 +9,15 @@ const ALL_ASSETS = [
   '/asset_5.jpeg',
   '/asset_6.jpeg',
   '/asset_7.jpeg',
-  '/asset_8.jpeg',
   '/asset_9.jpeg',
   '/asset_10.jpeg',
   '/jbl.jpeg',
+  '/asset_11.jpeg',
+  '/asset_12.jpeg',
+  '/asset_13.jpeg',
+  '/asset_14.jpeg',
+  '/asset_15.jpeg',
+  '/asset_16.jpeg',
 ];
 
 const col1 = [...ALL_ASSETS, ...ALL_ASSETS];

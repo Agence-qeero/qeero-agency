@@ -8,7 +8,8 @@ const ContactModal = ({ onClose }) => {
   const [sent, setSent] = useState(false);
   const [sending, setSending] = useState(false);
   const [error, setError] = useState(null);
-  const [form, setForm] = useState({ name: '', email: '', service: '', message: '' });
+  const [form, setForm] = useState({ name: '', email: '', service: '', message: '', _hp: '' });
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -82,7 +83,19 @@ const ContactModal = ({ onClose }) => {
                 </div>
 
                 <form onSubmit={handleSubmit} className="space-y-4">
+                  {/* Honeypot — hidden from users, bots fill this automatically */}
+                  <div aria-hidden="true" style={{ position: 'absolute', left: '-9999px', top: '-9999px', opacity: 0, pointerEvents: 'none', tabIndex: -1 }}>
+                    <input
+                      type="text"
+                      name="website"
+                      value={form._hp}
+                      onChange={e => setForm({ ...form, _hp: e.target.value })}
+                      autoComplete="off"
+                      tabIndex={-1}
+                    />
+                  </div>
                   <div className="grid grid-cols-2 gap-4">
+
                     <div>
                       <label className="block text-xs font-bold text-gray-600 uppercase tracking-wider mb-1.5">{t.contactModal.nameLabel}</label>
                       <input

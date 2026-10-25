@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
-import { Menu, X } from 'lucide-react';
+import { useTheme } from '../contexts/ThemeContext';
+import { Menu, X, Sun, Moon } from 'lucide-react';
 import { motion } from 'framer-motion';
 import ContactModal from './ContactModal';
 import TextHover from './TextHover';
@@ -32,14 +33,13 @@ const languages = [
 
 const Navbar = () => {
   const { language, setLanguage, t } = useLanguage();
+  const { isDark, toggleTheme } = useTheme();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [contactOpen, setContactOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => {
-      setScrolled(window.scrollY > 20);
-    };
+    const onScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener('scroll', onScroll);
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
@@ -58,13 +58,17 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className={`fixed w-full z-50 top-0 transition-all duration-300 ${scrolled || mobileOpen ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-black/5' : 'bg-transparent'}`}>
+      <nav className={`fixed w-full z-50 top-0 transition-all duration-300 ${
+        scrolled || mobileOpen
+          ? 'bg-white/95 dark:bg-[#111111]/95 backdrop-blur-md shadow-sm border-b border-black/5 dark:border-white/5'
+          : 'bg-transparent'
+      }`}>
         <div className="px-4 sm:px-6 lg:px-12 xl:px-16 2xl:px-24">
           <div className="flex justify-between items-center h-20 xl:h-24">
 
             <a href="/" className="flex-shrink-0 flex items-center gap-2 group">
-              <img src="/Q.png" alt="Qeero Logo" className="h-10 w-auto object-contain" />
-              <span translate="no" className="text-2xl font-black tracking-tight text-[#111111] group-hover:text-[#22C55E] transition-colors">qeero.</span>
+              <img src="/Q.png" alt="Qeero Logo" className="h-10 w-auto object-contain dark:brightness-200" />
+              <span translate="no" className="text-2xl font-black tracking-tight text-[#111111] dark:text-white group-hover:text-[#22C55E] transition-colors">qeero.</span>
             </a>
 
             <div className="hidden md:flex items-center gap-8">
@@ -72,7 +76,7 @@ const Navbar = () => {
                 <a
                   key={href}
                   href={href}
-                  className="text-sm font-semibold text-gray-600 hover:text-[#22C55E] transition-colors relative group"
+                  className="text-sm font-semibold text-gray-600 dark:text-gray-300 hover:text-[#22C55E] dark:hover:text-[#22C55E] transition-colors relative group"
                 >
                   <TextHover>{label}</TextHover>
                 </a>
@@ -80,7 +84,8 @@ const Navbar = () => {
             </div>
 
             <div className="flex items-center gap-3">
-              <div className="relative flex items-center bg-gray-100/90 p-1 rounded-full border border-black/5 shadow-inner">
+              {/* Language switcher */}
+              <div className="relative flex items-center bg-gray-100/90 dark:bg-white/10 p-1 rounded-full border border-black/5 dark:border-white/10 shadow-inner">
                 {languages.map((item) => {
                   const isActive = language === item.code;
                   return (
@@ -88,7 +93,7 @@ const Navbar = () => {
                       key={item.code}
                       onClick={() => setLanguage(item.code)}
                       className={`relative z-10 flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-bold transition-colors duration-200 cursor-pointer ${
-                        isActive ? 'text-[#111111]' : 'text-gray-400 hover:text-gray-700'
+                        isActive ? 'text-[#111111] dark:text-white' : 'text-gray-400 hover:text-gray-700 dark:hover:text-gray-200'
                       }`}
                       title={item.code === 'fr' ? 'Français' : 'English'}
                     >
@@ -104,7 +109,7 @@ const Navbar = () => {
                       {isActive && (
                         <motion.div
                           layoutId="active-flag-pill"
-                          className="absolute inset-0 bg-white rounded-full shadow-sm -z-10 border border-black/5"
+                          className="absolute inset-0 bg-white dark:bg-white/15 rounded-full shadow-sm -z-10 border border-black/5 dark:border-white/10"
                           transition={{ type: 'spring', stiffness: 500, damping: 35 }}
                         />
                       )}
@@ -113,16 +118,28 @@ const Navbar = () => {
                 })}
               </div>
 
+              {/* Dark / Light mode toggle */}
+              <motion.button
+                onClick={toggleTheme}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+                className="w-9 h-9 rounded-full flex items-center justify-center bg-gray-100/90 dark:bg-white/10 border border-black/5 dark:border-white/10 text-gray-500 dark:text-gray-300 hover:text-[#22C55E] dark:hover:text-[#22C55E] transition-colors"
+                title={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
+                aria-label="Toggle dark mode"
+              >
+                {isDark ? <Sun size={16} strokeWidth={2} /> : <Moon size={16} strokeWidth={2} />}
+              </motion.button>
+
               <button
                 onClick={() => setContactOpen(true)}
                 className="hidden md:inline-flex btn-qeero px-6 py-2.5 text-sm"
               >
                 {t.nav.contact}
               </button>
-              
+
               <button
                 onClick={() => setMobileOpen(o => !o)}
-                className="md:hidden w-10 h-10 rounded-full flex items-center justify-center hover:bg-gray-100 transition-colors"
+                className="md:hidden w-10 h-10 rounded-full flex items-center justify-center hover:bg-gray-100 dark:hover:bg-white/10 transition-colors text-[#111111] dark:text-white"
               >
                 {mobileOpen ? <X size={22} /> : <Menu size={22} />}
               </button>
@@ -131,16 +148,18 @@ const Navbar = () => {
         </div>
 
         {mobileOpen && (
-          <div className="md:hidden bg-white border-t border-black/5 px-6 py-8 flex flex-col gap-6">
-            <div className="flex items-center justify-between pb-4 border-b border-black/5">
-              <span className="text-sm font-bold text-gray-500">Langue / Language</span>
-              <div className="relative flex items-center bg-gray-100 p-1 rounded-full border border-black/5">
+          <div className="md:hidden bg-white dark:bg-[#111111] border-t border-black/5 dark:border-white/5 px-6 py-8 flex flex-col gap-6">
+            <div className="flex items-center justify-between pb-4 border-b border-black/5 dark:border-white/5">
+              <span className="text-sm font-bold text-gray-500 dark:text-gray-400">Langue / Language</span>
+              <div className="relative flex items-center bg-gray-100 dark:bg-white/10 p-1 rounded-full border border-black/5 dark:border-white/10">
                 {languages.map((item) => (
                   <button
                     key={item.code}
                     onClick={() => setLanguage(item.code)}
                     className={`relative z-10 flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold transition-all ${
-                      language === item.code ? 'bg-white shadow text-[#111111]' : 'text-gray-400'
+                      language === item.code
+                        ? 'bg-white dark:bg-white/20 shadow text-[#111111] dark:text-white'
+                        : 'text-gray-400 dark:text-gray-500'
                     }`}
                   >
                     <span className="inline-flex items-center">{item.icon}</span>
@@ -149,22 +168,34 @@ const Navbar = () => {
                 ))}
               </div>
             </div>
+
             {links.map(({ href, label }) => (
               <a
                 key={href}
                 href={href}
                 onClick={() => setMobileOpen(false)}
-                className="text-lg font-bold text-[#111111] hover:text-[#22C55E] transition-colors border-b border-black/5 pb-4 last:border-0"
+                className="text-lg font-bold text-[#111111] dark:text-white hover:text-[#22C55E] dark:hover:text-[#22C55E] transition-colors border-b border-black/5 dark:border-white/5 pb-4 last:border-0"
               >
                 {label}
               </a>
             ))}
-            <button
-              onClick={() => { setMobileOpen(false); setContactOpen(true); }}
-              className="btn-qeero px-8 py-3.5 text-base mt-2"
-            >
-              {t.nav.contact}
-            </button>
+
+            <div className="flex items-center gap-3">
+              <button
+                onClick={() => { setMobileOpen(false); setContactOpen(true); }}
+                className="btn-qeero px-8 py-3.5 text-base flex-1"
+              >
+                {t.nav.contact}
+              </button>
+              <motion.button
+                onClick={toggleTheme}
+                whileTap={{ scale: 0.9 }}
+                className="w-12 h-12 rounded-full flex items-center justify-center bg-gray-100 dark:bg-white/10 border border-black/5 dark:border-white/10 text-gray-500 dark:text-gray-300 flex-shrink-0"
+                aria-label="Toggle dark mode"
+              >
+                {isDark ? <Sun size={18} /> : <Moon size={18} />}
+              </motion.button>
+            </div>
           </div>
         )}
       </nav>

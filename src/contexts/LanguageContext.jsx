@@ -1,11 +1,28 @@
-import React, { createContext, useState, useContext } from 'react';
+import React, { createContext, useState, useContext, useCallback } from 'react';
 import { en } from '../i18n/en';
 import { fr } from '../i18n/fr';
 
 const LanguageContext = createContext();
 
+const STORAGE_KEY = 'qeero-lang';
+const VALID_LANGS = ['fr', 'en'];
+
+function getInitialLanguage() {
+  try {
+    const stored = localStorage.getItem(STORAGE_KEY);
+    if (stored && VALID_LANGS.includes(stored)) return stored;
+  } catch (_) { /* localStorage unavailable (e.g. private browsing) */ }
+  return 'fr';
+}
+
 export const LanguageProvider = ({ children }) => {
-  const [language, setLanguage] = useState('fr'); 
+  const [language, setLanguageState] = useState(getInitialLanguage);
+
+  const setLanguage = useCallback((lang) => {
+    if (!VALID_LANGS.includes(lang)) return;
+    setLanguageState(lang);
+    try { localStorage.setItem(STORAGE_KEY, lang); } catch (_) {}
+  }, []);
 
   const t = language === 'en' ? en : fr;
 
@@ -17,3 +34,4 @@ export const LanguageProvider = ({ children }) => {
 };
 
 export const useLanguage = () => useContext(LanguageContext);
+
